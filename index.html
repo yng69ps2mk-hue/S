@@ -453,7 +453,7 @@ DEALINGS IN THE SOFTWARE.
 <footer class="studio-footer"><span>ひとつずつ確かめながら、数学を自分のものに。</span><span>16 : 9 DISPLAY · 計算は端末内で行います</span></footer>
 <span class="sr-only" id="presentationStatus" role="status"></span>
 </main>
-<dialog id="notationDialog" aria-labelledby="notationTitle"><div class="dialog-top"><h2 id="notationTitle">式の入力ガイド</h2><button class="button" id="closeNotation" aria-label="閉じる">✕</button></div><p>文字を入力すると、自動で教科書の数式と同じ書体になります。</p><ul><li><strong>分数：</strong>「分数」ボタンを押し、分子と分母を入力します。Tabや↓で次の枠へ移れます。例：<span class="math-example">(x+1)/(x-1)</span></li><li><strong>累乗：</strong>底を入力して「累乗」を押し、右上の枠に指数を入れます。例：<span class="math-example">x^2</span></li><li><strong>枠から出る：</strong>右矢印ボタンで、分数や指数の外に戻ります。</li><li><strong>平方根：</strong>√ボタンを押して、中の式を入力します。</li><li><strong>かけ算・かっこ：</strong><span class="math-example">2x</span>、<span class="math-example">(x+3)(x-2)</span> のようにそのまま入力できます。</li></ul><p>中1の「文字と式」は一次式、「方程式」は1種類の文字を含む一次方程式を自由に入力できます。かっこ・分数・小数に対応し、「答えまで表示」で計算結果を確認できます。文字どうしのかけ算や、文字で割る式は対象外です。</p><p>グラフでは <span class="math-example">sin(x)</span>、<span class="math-example">cos(x)</span>、<span class="math-example">tan(x)</span>、<span class="math-example">abs(x)</span>、<span class="math-example">log(x)</span>（常用対数）、<span class="math-example">ln(x)</span>（自然対数）、<span class="math-example">exp(x)</span>、定数π・eも使えます。関数名は半角英字で入力し、三角関数はラジアンを使います。</p><p>従来のキーボード形式の数式も貼り付けられます。貼り付けた分数と累乗も、自動で教科書の形に表示されます。</p><p class="hint">Enterで計算を実行できます。単元タブは↑↓で切り替えられます。入力内容はページを閉じるとリセットされます。</p></dialog>
+<dialog id="notationDialog" aria-labelledby="notationTitle"><div class="dialog-top"><h2 id="notationTitle">式の入力ガイド</h2><button class="button" id="closeNotation" aria-label="閉じる">✕</button></div><p>文字を入力すると、自動で教科書の数式と同じ書体になります。</p><ul><li><strong>分数：</strong>「分数」ボタンを押し、分子と分母を入力します。Tabや↓で次の枠へ移れます。例：<span class="math-example">(x+1)/(x-1)</span></li><li><strong>累乗：</strong>底を入力して「累乗」を押し、右上の枠に指数を入れます。例：<span class="math-example">x^2</span></li><li><strong>枠から出る：</strong>右矢印ボタンで、分数や指数の外に戻ります。</li><li><strong>平方根：</strong>√ボタンを押して、中の式を入力します。</li><li><strong>かけ算・かっこ：</strong><span class="math-example">2x</span>、<span class="math-example">(x+3)(x-2)</span> のようにそのまま入力できます。</li></ul><p>中1の「文字と式」は一次式、「方程式」は1種類の文字を含む一次方程式を自由に入力できます。かっこ・分数・小数に対応し、「答えまで表示」で計算結果を確認できます。文字どうしのかけ算や、文字で割る式は対象外です。</p><p>中2では「式の計算」「連立方程式」も自由入力できます。一次関数では、傾き・切片・最大2点の座標のうち分かっている値だけ入力し、不明な欄は空欄にしてください。</p><p>グラフでは <span class="math-example">sin(x)</span>、<span class="math-example">cos(x)</span>、<span class="math-example">tan(x)</span>、<span class="math-example">abs(x)</span>、<span class="math-example">log(x)</span>（常用対数）、<span class="math-example">ln(x)</span>（自然対数）、<span class="math-example">exp(x)</span>、定数π・eも使えます。関数名は半角英字で入力し、三角関数はラジアンを使います。</p><p>従来のキーボード形式の数式も貼り付けられます。貼り付けた分数と累乗も、自動で教科書の形に表示されます。</p><p class="hint">Enterで計算を実行できます。単元タブは↑↓で切り替えられます。入力内容はページを閉じるとリセットされます。</p></dialog>
 <script>
 /** MathLive 0.111.4 */
     (function(global,factory){typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) : typeof define === 'function' && define.amd ? define(['exports'],factory):(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.MathLive = {}));})(this, (function (exports) { 'use strict';
@@ -4883,7 +4883,7 @@ window.M = (() => {
     function fields(){
       ui.q('[data-g1plane-fields]').innerHTML=mode==='move'?`<label class="field">移動の種類<select class="input" data-g1plane-transform><option value="translate">平行移動</option><option value="rotate">回転移動</option><option value="reflect">対称移動</option></select></label><div data-g1plane-options></div>`:mode==='bisector'?`<div class="card"><h3>線分ABを二等分する</h3><p class="hint">ABは6目盛り。同じ半径で、AとBを中心とする円をかきます。</p><label class="field">コンパスの半径<input type="range" min="3.2" max="4.5" step="0.1" value="4" data-g1plane-radius></label><label class="field">直線上の点Pの位置<input type="range" min="70" max="330" step="10" value="120" data-g1plane-p></label></div>`:`<label class="field">もとの角<select class="input" data-g1plane-angle><option value="40">40°</option><option value="60" selected>60°</option><option value="80">80°</option></select></label><p class="hint">Oから同じ距離のA・Bを取り、AとBから同じ半径の円をかきます。</p>`;
       if(mode==='tangent')ui.q('[data-g1plane-fields]').innerHTML=`<div class="card"><h3>円周上の点Pを通る接線</h3><p class="hint">中心Oと円周上の点Pが与えられています。Pを通り、半径OPに垂直な直線を、定規とコンパスで作図します。</p><p class="hint">補助線・円弧を順番に表示します。点Pを中心に同じ距離の2点を取り、垂直二等分線の作図を使いましょう。</p></div>`;
-      if(mode==='sector')ui.q('[data-g1plane-fields]').innerHTML=`<label class="field">半径 r（cm）<input class="input" type="number" min="0.1" max="100" step="any" value="6" data-g1plane-sector-radius></label><label class="field">中心角 a（°）<input class="input" type="number" min="0.1" max="360" step="any" value="60" data-g1plane-sector-angle></label><button class="button primary" type="button" data-g1plane-sector-calculate>面積を計算</button><p class="hint">半径は0.1〜100 cm、中心角は0.1〜360°。小数も入力できます。円周率はπのままで表し、近似値も示します。</p><div class="templates"><button type="button" data-g1plane-sector-example="6,60">半径6・60°</button><button type="button" data-g1plane-sector-example="4,90">半径4・90°</button><button type="button" data-g1plane-sector-example="3,240">半径3・240°</button><button type="button" data-g1plane-sector-example="3,360">円全体</button></div>`;
+      if(mode==='sector')ui.q('[data-g1plane-fields]').innerHTML=`<label class="field">半径 r（cm）<input class="input" type="number" min="0.1" max="100" step="any" value="6" data-g1plane-sector-radius></label><label class="field">中心角 a（°）<input class="input" type="number" min="0.1" max="360" step="any" value="60" data-g1plane-sector-angle></label><button class="button primary" type="button" data-g1plane-sector-calculate>面積を計算</button><p class="hint">半径は0.1〜100 cm、中心角は0.1〜360°。小数も入力できます。円周率はπのままで表し、近似値も示します。</p><p class="hint">円錐の側面のおうぎ形では、円全体に対する割合は「円錐の底面の半径 ÷ 母線」です。このとき、おうぎ形そのものの半径は母線の長さです。詳しくは空間図形の「円錐 → 表面積」で確かめられます。</p><div class="templates"><button type="button" data-g1plane-sector-example="6,60">半径6・60°</button><button type="button" data-g1plane-sector-example="4,90">半径4・90°</button><button type="button" data-g1plane-sector-example="3,240">半径3・240°</button><button type="button" data-g1plane-sector-example="3,360">円全体</button></div>`;
       if(mode==='move'){
         ui.q('[data-g1plane-transform]').onchange=()=>{stage=0;prediction='';moveOptions();render();};moveOptions();
       }else ui.q('[data-g1plane-fields]').querySelectorAll('input,select').forEach(input=>input.oninput=()=>{if(!input.matches('[data-g1plane-p]'))stage=0;render();});
@@ -5178,7 +5178,7 @@ window.M = (() => {
       if(task==='area'){
         if(shape==='box'||shape==='cube'){const area=2*(v.w*v.d+v.w*v.h+v.d*v.h);formula=`2×(${v.w}×${v.d}+${v.w}×${v.h}+${v.d}×${v.h})=${area}`;notes=['向かい合う面は同じ大きさです。3種類の長方形が2枚ずつあることを予想します。','底面2枚と、まわりの側面4枚を広げます。辺どうしがつながる位置にも注目します。','底面の組・手前と奥の組・左右の組の面積を足します。面積の単位はcm²です。'];}
         else if(shape==='cylinder'){formula=`2×pi×${v.r}^2+2×pi×${v.r}×${v.h}=${2*v.r*v.r+2*v.r*v.h}pi`;notes=['底面と上の面は同じ円です。側面を切って広げると、どんな図形になるでしょう。','側面は長方形になります。その横の長さは底面の円周、縦の長さは高さです。','表面積は円2枚の面積と、長方形の面積の和です。円周を横の長さとして使うことが大切です。'];}
-        else{formula=`pi×${v.r}^2+pi×${v.r}×${v.l}=${v.r*v.r+v.r*v.l}pi`;notes=['底面は円、側面を広げるとおうぎ形です。高さと母線は違う長さです。','おうぎ形の半径は母線、弧の長さは底面の円周です。色の同じ面どうしが対応しています。','側面積は「弧の長さ × 母線 ÷ 2」、つまりπ×半径×母線です。これに底面の円の面積を足します。'];}
+        else{formula=`pi×${v.r}^2+pi×${v.r}×${v.l}=${v.r*v.r+v.r*v.l}pi`;notes=['底面は円、側面を広げるとおうぎ形です。高さと母線は違う長さです。','おうぎ形の半径は母線、弧の長さは底面の円周です。円全体に対する割合は「底面の半径 ÷ 母線」で求められます。','側面積は「弧の長さ × 母線 ÷ 2」、つまりπ×半径×母線です。これに底面の円の面積を足します。'];}
       }else{
         if(shape==='box'||shape==='cube')formula=`(${v.w}×${v.d})×${v.h}=${v.w*v.d*v.h}`;
         else if(shape==='cylinder')formula=`pi×${v.r}^2×${v.h}=${v.r*v.r*v.h}pi`;
@@ -5189,7 +5189,7 @@ window.M = (() => {
         formula=task==='area'?`6×${v.w}^2=${6*v.w*v.w}`:`${v.w}^3=${v.w**3}`;
         if(task==='area')notes=['立方体は、同じ大きさの正方形6枚で囲まれています。1枚の面積から表面積を考えましょう。','底面2枚と側面4枚を広げます。どの面も、同じ1辺の長さの正方形です。','正方形1枚の面積は1辺×1辺です。その6倍が立方体の表面積になります。'];
       }
-      ui.work.innerHTML=`<div class="g1sd-title"><h2>${task==='area'?'面を広げて、面積を組み立てる':'底面を積んで、体積を考える'}</h2><span class="badge">${{box:'直方体',cube:'立方体',cylinder:'円柱',cone:'円錐'}[shape]}</span></div>${C.svg(solidDiagram(v),{label:'立体の底面・側面と、展開図または体積の積み重ねを対応させた図',viewBox:'0 0 760 390'})}${task==='area'?`<div class="g1sd-actions"><button class="button" data-g1solid-face="base" aria-pressed="${selected==='base'}">底面を目立たせる</button><button class="button" data-g1solid-face="side" aria-pressed="${selected==='side'}">側面を目立たせる</button></div>`:shape==='cone'&&stage>0?`<div class="g1sd-actions"><button class="button primary" data-g1solid-pour ${pours===3?'disabled':''}>円錐1杯分を注ぐ</button><button class="button" data-g1solid-empty>空にする</button><p class="hint">量の関係を示す模型です。</p></div>`:''}${textSteps(['どこを見る？','形と量を対応させる','式で理由をまとめる'][stage],notes[stage])}${stage===2?`<div class="formula">${C.m(formula)} ${task==='area'?'cm²':'cm³'}</div>${shape==='cone'&&task==='area'?`<p class="hint">この例では母線${v.l} cmが与えられています。側面のおうぎ形の半径には、この母線を使います。高さとは区別しましょう。</p>`:''}`:''}${actions(stage,2)}`;
+      ui.work.innerHTML=`<div class="g1sd-title"><h2>${task==='area'?'面を広げて、面積を組み立てる':'底面を積んで、体積を考える'}</h2><span class="badge">${{box:'直方体',cube:'立方体',cylinder:'円柱',cone:'円錐'}[shape]}</span></div>${C.svg(solidDiagram(v),{label:'立体の底面・側面と、展開図または体積の積み重ねを対応させた図',viewBox:'0 0 760 390'})}${task==='area'?`<div class="g1sd-actions"><button class="button" data-g1solid-face="base" aria-pressed="${selected==='base'}">底面を目立たせる</button><button class="button" data-g1solid-face="side" aria-pressed="${selected==='side'}">側面を目立たせる</button></div>`:shape==='cone'&&stage>0?`<div class="g1sd-actions"><button class="button primary" data-g1solid-pour ${pours===3?'disabled':''}>円錐1杯分を注ぐ</button><button class="button" data-g1solid-empty>空にする</button><p class="hint">量の関係を示す模型です。</p></div>`:''}${textSteps(['どこを見る？','形と量を対応させる','式で理由をまとめる'][stage],notes[stage])}${stage===2?`<div class="formula">${C.m(formula)} ${task==='area'?'cm²':'cm³'}</div>${shape==='cone'&&task==='area'?`<section class="card" data-cone-sector-ratio><h3>おうぎ形の割合は「底面の半径 ÷ 母線」</h3><p>円錐の底面の半径を ${C.m('r')}、母線を ${C.m('l')} とします。側面を開いたおうぎ形の半径は ${C.m('l')}、弧の長さは底面の円周 ${C.m('2pi r')} です。</p><p>半径 ${C.m('l')} の円全体の円周は ${C.m('2pi l')}。弧の長さをこの円周で割ると、円全体に対する割合が分かります。</p><div class="formula">${C.m(`(2pi r)/(2pi l)=r/l=${v.r}/${v.l}=${M.format(v.r/v.l)}`)}</div><p>この割合は、中心角と面積の割合にも等しくなります。</p><div class="formula">中心角：${C.m(`360×(${v.r}/${v.l})=${M.format(360*v.r/v.l)}`)}°<br>側面積：${C.m(`pi×${v.l}^2×(${v.r}/${v.l})=${v.r*v.l}pi`)} cm²</div><p class="hint">円錐の表面積は、この側面積に底面の面積を足したものです。母線は立体の高さとは違う長さです。</p></section>`:''}`:''}${actions(stage,2)}`;
       ui.work.querySelectorAll('[data-g1solid-face]').forEach(button=>button.onclick=()=>{selected=button.dataset.g1solidFace;render();});
       ui.work.querySelector('[data-g1solid-pour]')?.addEventListener('click',()=>{pours=Math.min(3,pours+1);render();});
       ui.work.querySelector('[data-g1solid-empty]')?.addEventListener('click',()=>{pours=0;render();});
@@ -6107,17 +6107,17 @@ window.QuizBank.review=[
   },
   {
     id:'r-02a',topic:'文字式',domain:'数と式',grade:'中1',
-    prompt:'`3a+2b-(a-4b)` を簡単にしましょう。',
-    choices:['`2a-2b`','`4a-2b`','`4a+6b`','`2a+6b`'],answer:3,
+    prompt:'`3a+2-(a-4)` を簡単にしましょう。',
+    choices:['`2a-2`','`4a-2`','`4a+6`','`2a+6`'],answer:3,
     hint:'括弧の前が負号のとき、括弧内の各項の符号が変わります。',
-    explanation:['括弧を外すと、`3a+2b-a+4b` です。','同類項をまとめて、`(3-1)a+(2+4)b=2a+6b` となります。']
+    explanation:['括弧を外すと、`3a+2-a+4` です。','文字の項と定数をそれぞれまとめて、`(3-1)a+2+4=2a+6` となります。']
   },
   {
     id:'r-02b',topic:'文字式',domain:'数と式',grade:'中1',
-    prompt:'`a=-2`、`b=3` のとき、`2a^2-3b` の値を求めましょう。',
+    prompt:'`a=-2` のとき、`3a+5` の値を求めましょう。',
     choices:['`-1`','`-17`','`7`','`17`'],answer:0,
-    hint:'負の数を代入するときは、括弧を付けてから平方します。',
-    explanation:['代入すると、`2×(-2)^2-3×3` です。','`(-2)^2=4` なので、`2×4-9=8-9=-1` になります。']
+    hint:'文字aを、括弧を付けた負の数に置き換えて計算します。',
+    explanation:['代入すると、`3×(-2)+5` です。','先にかけ算をして、`-6+5=-1` になります。']
   },
   {
     id:'r-03a',topic:'展開',domain:'数と式',grade:'中3',
@@ -7184,15 +7184,21 @@ window.QuizBank.review=[
   const countAnswered=session=>session.answers.filter(answer=>answer!==null).length;
   function explanations(question){return `<ol class="quiz-explanation">${question.explanation.map(line=>`<li>${markup(line)}</li>`).join('')}</ol>`;}
 
-  function createAssessment(host,kind,index){
+  function createAssessment(host,kind,index,reviewGrade=3){
     let session=null;
     host.classList.add('quiz-surface','workbench');
     host.dataset.quizKind=kind;
-    const bank=()=>kind==='review'?QuizBank.review:typeof index==='string'?QuizBank.extraUnits[index]:QuizBank.units[index];
-    const requestedCount=kind==='practice'?6:kind==='test'?10:24;
+    const maxGrade=[1,2,3].includes(reviewGrade)?reviewGrade:3;
+    const allowedGrades=['中1','中2','中3'].slice(0,maxGrade);
+    const reviewBank=kind==='review'?QuizBank.review.filter(question=>allowedGrades.includes(question.grade)):[];
+    const reviewScope=maxGrade===1?'中1':maxGrade===2?'中1・中2':'中1〜中3';
+    const assessmentLabel=kind==='review'?`${labels.review}（${reviewScope}）`:labels[kind];
+    if(kind==='review')host.dataset.reviewGrade=String(maxGrade);
+    const bank=()=>kind==='review'?reviewBank:typeof index==='string'?QuizBank.extraUnits[index]:QuizBank.units[index];
+    const requestedCount=kind==='practice'?6:kind==='test'?10:new Set(reviewBank.map(question=>question.topic)).size;
     function start(source=null,practice=false){
       const selected=source||selectBalanced(bank(),requestedCount);
-      session=makeSession(practice?'practice':kind,selected,practice?'間違えた問題を練習':labels[kind]);
+      session=makeSession(practice?'practice':kind,selected,practice?(kind==='review'?`間違えた問題を練習（${reviewScope}）`:'間違えた問題を練習'):assessmentLabel);
       render(true);
     }
     function announce(text){const status=host.querySelector('[data-quiz-status]');if(status)status.textContent=text;}
@@ -7205,7 +7211,7 @@ window.QuizBank.review=[
     function intro(){
       host.dataset.quizState='intro';
       const review=kind==='review';
-      host.innerHTML=`<section class="quiz-intro card"><div class="badge">${review?'JUNIOR HIGH REVIEW':kind==='practice'?'PRACTICE':'CHECK TEST'}</div><h2>${escape(labels[kind])}</h2><p class="quiz-intro-lead">${review?'中1から中3まで。学んだことを、つなげて確かめよう。':kind==='practice'?'考える、確かめる、もう一度。自分のペースで進めよう。':'今の理解を確かめて、次の学びにつなげよう。'}</p><div class="quiz-intro-facts"><span><strong>${requestedCount}</strong>問</span><span>4つの選択肢から解答</span><span>時間制限なし</span></div>${review?'<p class="quiz-scope">数と式・方程式・関数・図形・データの活用。24のテーマから1問ずつ出題します。</p>':''}<ul class="quiz-intro-notes">${kind==='practice'?'<li>ヒントを見てから答えても大丈夫です。</li><li>1問ずつ答え合わせをして、計算過程や理由を確認します。</li><li>最後に、間違えた問題をもう一度練習できます。</li>':'<li>問題番号や「前へ・次へ」で移動し、採点前なら答えを変更できます。</li><li>正解と解説は、最後にまとめて表示します。</li><li>未回答の問題は不正解として採点します。</li>'}</ul><button type="button" class="button primary quiz-start" data-quiz-start>${kind==='practice'?'練習を始める':'テストを始める'}</button><p class="quiz-note">単元やモードを切り替えても、このページを開いている間は続きから進められます。</p></section>`;
+      host.innerHTML=`<section class="quiz-intro card"><div class="badge">${review?'JUNIOR HIGH REVIEW':kind==='practice'?'PRACTICE':'CHECK TEST'}</div><h2>${escape(assessmentLabel)}</h2><p class="quiz-intro-lead">${review?`${reviewScope}の内容を、まとめて確かめよう。`:kind==='practice'?'考える、確かめる、もう一度。自分のペースで進めよう。':'今の理解を確かめて、次の学びにつなげよう。'}</p><div class="quiz-intro-facts"><span><strong>${requestedCount}</strong>問</span><span>4つの選択肢から解答</span><span>時間制限なし</span></div>${review?`<p class="quiz-scope">出題範囲：${reviewScope}。数と式・方程式・関数・図形・データの活用の${requestedCount}テーマから1問ずつ出題します。</p>`:''}<ul class="quiz-intro-notes">${kind==='practice'?'<li>ヒントを見てから答えても大丈夫です。</li><li>1問ずつ答え合わせをして、計算過程や理由を確認します。</li><li>最後に、間違えた問題をもう一度練習できます。</li>':'<li>問題番号や「前へ・次へ」で移動し、採点前なら答えを変更できます。</li><li>正解と解説は、最後にまとめて表示します。</li><li>未回答の問題は不正解として採点します。</li>'}</ul><button type="button" class="button primary quiz-start" data-quiz-start>${kind==='practice'?'練習を始める':'テストを始める'}</button><p class="quiz-note">単元やモードを切り替えても、このページを開いている間は続きから進められます。</p></section>`;
       host.querySelector('[data-quiz-start]').addEventListener('click',()=>start());
     }
     function questionView(){
@@ -7296,12 +7302,12 @@ window.QuizBank.review=[
     attached.set(pane,{controllers});
   }
   window.Learning={attach,markup,selectBalanced};
-  window.initReview=pane=>{
+  window.initReview=(pane,reviewGrade=3)=>{
     if(attached.has(pane))return;
     pane.classList.add('has-learning');pane.dataset.learningMode='review';
     const assessment=document.createElement('div');assessment.className='learning-assessment';
     const host=document.createElement('div');assessment.append(host);pane.append(assessment);
-    const controller=createAssessment(host,'review',6);attached.set(pane,{controllers:{review:controller}});
+    const controller=createAssessment(host,'review',6,reviewGrade);attached.set(pane,{controllers:{review:controller}});
   };
 })();
 
@@ -7474,11 +7480,478 @@ window.QuizBank.review=[
 
 </script>
 <script>
+/* Year-two free algebra and simultaneous equations; original guided lessons remain available. */
+(() => {
+  'use strict';
+  const C=window.Concept,m=C.m,esc=C.esc;
+  const gcd=(a,b)=>{a=a<0n?-a:a;b=b<0n?-b:b;while(b){[a,b]=[b,a%b];}return a||1n;};
+  function R(n,d=1n){if(d===0n)throw Error('0で割ることはできません。');if(d<0n){n=-n;d=-d;}const g=gcd(n,d);n/=g;d/=g;if(n.toString().length>100||d.toString().length>100)throw Error('計算する数が大きすぎます。式を短くしてください。');return {n,d};}
+  const Z=()=>R(0n),O=()=>R(1n),add=(a,b)=>R(a.n*b.d+b.n*a.d,a.d*b.d),neg=a=>R(-a.n,a.d),sub=(a,b)=>add(a,neg(b)),mul=(a,b)=>R(a.n*b.n,a.d*b.d),div=(a,b)=>R(a.n*b.d,a.d*b.n),txt=a=>a.d===1n?String(a.n):`${a.n}/${a.d}`;
+  function decimal(raw){const [mantissa,exponent='0']=raw.toLowerCase().split('e'),p=Number(exponent),parts=mantissa.split('.'),digits=parts.join(''),places=(parts[1]||'').length-p;if(Math.abs(p)>40||digits.length>40||Math.abs(places)>40)throw Error('数の桁数は40桁以内にしてください。');return places>=0?R(BigInt(digits),10n**BigInt(places)):R(BigInt(digits)*10n**BigInt(-places));}
+  const mono=key=>[...new Set(key)].map(c=>{const n=[...key].filter(x=>x===c).length;return c+(n>1?'^'+n:'');}).join('');
+  function combine(terms){const out=new Map();for(const {key,value}of terms)out.set(key,add(out.get(key)||Z(),value));return [...out].filter(([,v])=>v.n!==0n).sort(([a],[b])=>b.length-a.length||a.localeCompare(b)).map(([key,value])=>({key,value}));}
+  function format(terms){return terms.filter(t=>t.value.n!==0n).map(({key,value},i)=>{const a=R(value.n<0n?-value.n:value.n,value.d),c=key&&a.n===a.d?'':a.d===1n?txt(a):`(${txt(a)})`;return (value.n<0n?(i?' - ':'-'):(i?' + ':''))+c+mono(key);}).join('')||'0';}
+  const scale=(terms,k)=>terms.map(t=>({key:t.key,value:mul(t.value,k)}));
+  function product(left,right){const out=[];for(const l of left)for(const r of right){const key=(l.key+r.key).split('').sort().join('');if(key.length>8)throw Error('次数は8以下にしてください。');out.push({key,value:mul(l.value,r.value)});if(out.length>160)throw Error('展開後の項が多すぎます。式を分けて入力してください。');}return out;}
+  function normalizeSource(source){
+    // A school-style division sign divides by the following monomial as a whole.
+    // Slash notation keeps ordinary left-to-right arithmetic; use /(3ab) for a denominator.
+    if(String(source).includes('@'))throw Error('「@」は式に使えません。割り算には ÷ または / を使ってください。');
+    const held=M.normalize(String(source).replace(/÷|-:/g,'@'));
+    const number='(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:[eE][+-]?\\d+)?';
+    const atom='[a-zA-Z](?:\\^\\([+-]?\\d+\\)|\\^[+-]?\\d+)?';
+    const monomial=new RegExp('@([+-]?(?:'+number+')?(?:'+atom+')+)','g');
+    return held.replace(monomial,'/($1)').replace(/@/g,'/');
+  }
+  function parse(source,{variableDivision=true}={}){
+    const normalized=normalizeSource(source);if(!normalized)throw Error('式を入力してください。');
+    if(/(?:sqrt|sin|cos|tan|abs|log|exp|ln|pi|√)/i.test(normalized))throw Error('数・文字・四則演算・かっこ・整数の指数を使ってください。関数や平方根はここでは扱いません。');
+    const ast=M.parse(normalized),numbers=normalized.match(/(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?/g)||[];let index=0;const restrictions=new Set(),variables=new Set();
+    function annotate(a){if(a.type==='num')a.rational=decimal(numbers[index++]);else if(a.type==='var')variables.add(a.name);else if(a.type==='unary')annotate(a.arg);else if(a.type==='bin'){annotate(a.left);annotate(a.right);}else throw Error('対応していない式です。');}annotate(ast);
+    function visit(a){
+      if(a.type==='num')return [{key:'',value:a.rational}];if(a.type==='var')return [{key:a.name,value:O()}];if(a.type==='unary')return scale(visit(a.arg),R(a.op==='-'?-1n:1n));
+      const left=visit(a.left),right=visit(a.right);let result;
+      if(a.op==='+'||a.op==='-')result=[...left,...scale(right,R(a.op==='-'?-1n:1n))];
+      else if(a.op==='*')result=product(left,right);
+      else if(a.op==='/'){
+        const divisor=combine(right);if(!divisor.length)throw Error('0で割ることはできません。');if(divisor.length!==1)throw Error('割る式は、数または単項式にしてください。例：6a^2b/(3ab)');
+        const d=divisor[0];if(d.key&&!variableDivision)throw Error('連立方程式では、文字で割る式は使えません。分母には数を入れてください。');
+        for(const ch of d.key)restrictions.add(ch);
+        result=combine(left).map(t=>{let key=t.key;for(const c of d.key){const at=key.indexOf(c);if(at<0&&t.value.n!==0n)throw Error('約分しても分母に文字が残ります。ここでは多項式になる計算を扱います。');if(at>=0)key=key.slice(0,at)+key.slice(at+1);}return {key,value:div(t.value,d.value)};});
+      }else if(a.op==='^'){
+        const ex=combine(right);if(ex.some(t=>t.key))throw Error('指数は0〜6の整数にしてください。');const n=ex[0]?.value||Z();if(n.d!==1n||n.n<0n||n.n>6n)throw Error('指数は0〜6の整数にしてください。');result=[{key:'',value:O()}];for(let i=0n;i<n.n;i++)result=product(result,left);
+      }else throw Error('演算記号を確認してください。');
+      if(result.length>160)throw Error('項が多すぎます。式を分けて入力してください。');return result;
+    }
+    const terms=visit(ast).filter(t=>t.value.n!==0n);return {source:normalized,terms,combined:combine(terms),restrictions:[...restrictions].sort(),variables:[...variables].sort()};
+  }
+  const coef=(terms,key)=>terms.find(t=>t.key===key)?.value||Z();
+  function row(source){
+    const parts=normalizeSource(source).split('=');if(parts.length!==2||parts.some(p=>!p))throw Error('各方程式には等号を1つ入れ、左右の式を入力してください。');
+    const left=parse(parts[0],{variableDivision:false}),right=parse(parts[1],{variableDivision:false});
+    if([...left.variables,...right.variables].some(c=>c!=='x'&&c!=='y'))throw Error('連立方程式の文字には x と y を使ってください。');
+    const terms=combine([...left.combined,...scale(right.combined,R(-1n))]);if(terms.some(t=>t.key.length>1))throw Error('整理した後に x、y の一次式になる方程式を入力してください。');
+    return {source:normalizeSource(source),left,right,a:coef(terms,'x'),b:coef(terms,'y'),c:neg(coef(terms,''))};
+  }
+  const rowText=r=>format([{key:'x',value:r.a},{key:'y',value:r.b}])+' = '+txt(r.c);
+  const rowScale=(r,k)=>({a:mul(r.a,k),b:mul(r.b,k),c:mul(r.c,k)});
+  function solve(first,second){
+    const rows=[row(first),row(second)],[p,q]=rows,D=sub(mul(p.a,q.b),mul(q.a,p.b));
+    if(D.n===0n){
+      const impossible=rows.some(r=>r.a.n===0n&&r.b.n===0n&&r.c.n!==0n)||sub(mul(p.a,q.c),mul(q.a,p.c)).n!==0n||sub(mul(p.b,q.c),mul(q.b,p.c)).n!==0n;
+      return {rows,kind:impossible?'none':'many',relation:rows.find(r=>r.a.n||r.b.n)||null};
+    }
+    const x=div(sub(mul(p.c,q.b),mul(q.c,p.b)),D),y=div(sub(mul(p.a,q.c),mul(q.a,p.c)),D);
+    let eliminate,factors;if(p.b.n&&q.b.n){eliminate='y';factors=[q.b,p.b];}else if(p.a.n&&q.a.n){eliminate='x';factors=[q.a,p.a];}else{eliminate='direct';factors=[O(),O()];}
+    const multiplied=rows.map((r,i)=>rowScale(r,factors[i])),difference={a:sub(multiplied[0].a,multiplied[1].a),b:sub(multiplied[0].b,multiplied[1].b),c:sub(multiplied[0].c,multiplied[1].c)};
+    return {rows,kind:'one',x,y,eliminate,factors,multiplied,difference};
+  }
+  function valueAt(p,x,y){return p.combined.reduce((sum,t)=>{let term=t.value;for(const c of t.key)term=mul(term,c==='x'?x:y);return add(sum,term);},Z());}
+  function substitute(source,x,y){return source.replace(/(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?|[a-zA-Z]/g,t=>t.toLowerCase()==='x'?`(${txt(x)})`:t.toLowerCase()==='y'?`(${txt(y)})`:t);}
+  const exampleExpressions=[['3x+2y-x+4y','同類項'],['3(a-2b)-2(2a+b)','かっこと符号'],['(x+1)/3-(x-2)/2','分数の係数'],['6a^2b/(3ab)','単項式の除法'],['(a+b)(a-b)','式の積']];
+  const exampleSystems=[['2x+y=7','x-y=2','加減法'],['(x+y)/2=3','x-2y=0','分数'],['0.2x+0.3y=1.3','x+y=5','小数'],['2x+2y=4','x+y=2','解が無数'],['x+y=2','2x+2y=5','解がない']];
+  function stepper(ui,stage,last,render){const footer=document.createElement('div');footer.className='g1a-stage-actions';footer.innerHTML=`<button type="button" class="button" data-g2free-back ${stage===0?'disabled':''}>← 前のステップ</button><span class="g1a-progress">${stage+1} / ${last+1}</span><button type="button" class="button primary" data-g2free-next>${stage===last?'最初から':'次のステップ →'}</button>${stage<last?'<button type="button" class="button" data-g2free-result>答えまで表示</button>':''}`;ui.work.append(footer);footer.querySelector('[data-g2free-back]').onclick=()=>render(stage-1);footer.querySelector('[data-g2free-next]').onclick=()=>render(stage===last?0:stage+1);footer.querySelector('[data-g2free-result]')?.addEventListener('click',()=>render(last));}
+  function expressionLesson(host,guided){
+    const initial='3(a-2b)-2(2a+b)',ui=C.frame(host,{intro:'式をそのまま入力し、かっこを開いて同類項を整理します。単項式の乗法・除法も確かめられます。',controls:`<div class="card"><h3>式を自由に入力</h3><label class="field" for="g2ExpressionInput">計算する式</label><input class="input" id="g2ExpressionInput" value="${initial}" aria-label="中2の自由入力の式" autocomplete="off" spellcheck="false"><div class="g1a-stage-actions"><button type="button" class="button primary" data-g2free-calculate>計算する</button><button type="button" class="button" data-g2free-clear>消去</button></div><p class="hint">文字・かっこ・分数・小数に対応。÷では次の単項式全体で割ります。/では割る単項式全体をかっこで囲みます。例：${m('6a^2b/(3ab)')}。分母に文字が残る式や関数は対象外です。指数は0〜6、結果の次数は8以下です。</p></div><div class="card"><h3>入力例</h3><div class="templates">${exampleExpressions.map((p,i)=>`<button type="button" data-g2free-example="${i}">${p[1]}</button>`).join('')}</div></div><div class="card"><h3>図で理由を確かめる</h3><button type="button" class="button" data-g2free-guided>タイル・文字式の説明の教材へ</button></div>`});
+    const input=ui.q('#g2ExpressionInput');let answer=null,lastSource='',stage=0;
+    // Preserve the meaning of an explicit division sign before the shared paste
+    // handler converts plain text to a typeset fraction.
+    host.addEventListener('paste',event=>{
+      const text=event.clipboardData?.getData('text/plain'),field=event.target.closest?.('math-field');
+      if(!text||!field||field.dataset.inputId!=='g2ExpressionInput'||!/÷|-:/.test(text))return;
+      event.preventDefault();event.stopPropagation();
+      try{field.insert(T.latex(normalizeSource(text)),{format:'latex',selectionMode:'after',scrollIntoView:false});field.dispatchEvent(new Event('input',{bubbles:true}));}
+      catch(error){answer=null;C.error(ui.work,error);}
+    },true);
+    function render(next=stage){stage=next;const p=answer;if(!p)return;const restriction=p.restrictions.length?`<p class="hint">元の式で0で割らないため、${p.restrictions.map(v=>m(v+'≠0')).join('、')} とします。この条件のもとで等しい式です。</p>`:'';
+      let content=`<span class="badge">式の計算 · 自由入力</span><h3>${['入力した式を確かめる','分配法則・乗法・除法を計算する','同類項をまとめる','計算結果'][stage]}</h3><div class="formula">${m(p.source)}</div>${restriction}`;
+      if(stage>=1)content+=`<div class="step"><h4>かっこの中の各項に掛ける・文字を約分する</h4><div class="formula">${m(p.source+' = '+format(p.terms))}</div><p class="hint">かっこの前の−は各項の符号を変えます。単項式の除法では係数を割り、同じ文字の個数を比べて約分します。</p></div>`;
+      if(stage>=2){const keys=[...new Set(p.terms.map(t=>t.key))].sort((a,b)=>b.length-a.length||a.localeCompare(b));content+=keys.length?keys.map(key=>`<div class="step"><h4>${key?m(mono(key))+' の項':'定数項'}</h4><div class="formula">${m(format(p.terms.filter(t=>t.key===key))+' = '+format(p.combined.filter(t=>t.key===key)))}</div></div>`).join(''):'<p>すべての項が0になりました。</p>';}
+      if(stage===3)content+=`<div class="result" role="status">${m(format(p.combined))}</div><p>文字の部分と次数が同じ項だけをまとめました。</p>`;
+      ui.work.innerHTML='<section class="card">'+content+'</section>';stepper(ui,stage,3,render);
+    }
+    function calculate(){try{lastSource=input.value;answer=parse(lastSource);render(0);}catch(e){answer=null;C.error(ui.work,e);}}
+    input.addEventListener('input',()=>{if(answer&&M.normalize(input.value)===M.normalize(lastSource))return;answer=null;ui.work.innerHTML='<div class="card"><h3>式を編集中</h3><p>計算ボタンかEnterキーで確かめましょう。</p></div>';});input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();calculate();}});
+    ui.q('[data-g2free-calculate]').onclick=calculate;ui.q('[data-g2free-clear]').onclick=()=>{input.value='';input.dispatchEvent(new Event('input',{bubbles:true}));input.focus();};ui.q('[data-g2free-guided]').onclick=guided;
+    ui.controls.querySelectorAll('[data-g2free-example]').forEach(button=>button.onclick=()=>{input.value=exampleExpressions[+button.dataset.g2freeExample][0];calculate();});calculate();window.MathEditor?.refresh();
+  }
+  function systemLesson(host,guided){
+    const ui=C.frame(host,{intro:'2つの方程式を自由に入力し、両方を満たす x、y の組を求めます。計算の理由と検算を順に確認しましょう。',controls:`<div class="card"><h3>連立方程式を自由に入力</h3><label class="field" for="g2SystemFirst">① 1つ目の方程式</label><input class="input" id="g2SystemFirst" value="2x+y=7" aria-label="連立方程式の1つ目" autocomplete="off" spellcheck="false"><label class="field" for="g2SystemSecond">② 2つ目の方程式</label><input class="input" id="g2SystemSecond" value="x-y=2" aria-label="連立方程式の2つ目" autocomplete="off" spellcheck="false"><div class="g1a-stage-actions"><button type="button" class="button primary" data-g2free-calculate>連立方程式を解く</button><button type="button" class="button" data-g2free-clear>消去</button></div><p class="hint">文字は x、y。両辺に文字、かっこ、分数、小数があっても入力できます。整理後に一次式になる式を扱います。分母は数にしてください。</p></div><div class="card"><h3>入力例</h3><div class="templates">${exampleSystems.map((p,i)=>`<button type="button" data-g2free-example="${i}">${p[2]}</button>`).join('')}</div></div><div class="card"><h3>既存の教材</h3><button type="button" class="button" data-g2free-guided>買い物から学ぶ加減法・代入法へ</button></div>`});
+    const inputs=[ui.q('#g2SystemFirst'),ui.q('#g2SystemSecond')];let answer=null,lastSources=[],stage=0;
+    function render(next=stage){stage=next;const p=answer;if(!p)return;let content=`<span class="badge">連立方程式 · 自由入力</span><h3>${['2つの条件を確かめる','両辺を整理し、文字を左に集める','同じ文字の係数をそろえて消す','残りの文字を求める','答えと検算'][stage]}</h3><div class="g2a-equation-pair">${p.rows.map((r,i)=>`<div>${i?'②':'①'} ${m(r.source)}</div>`).join('')}</div>`;
+      if(stage>=1)content+=`<div class="step"><h4>かっこを開き、両辺に同じ操作をする</h4><div class="g2a-equation-pair">${p.rows.map((r,i)=>`<div>${i?'②':'①'} ${m(rowText(r))}</div>`).join('')}</div><p>左辺の定数を右辺へ、右辺の文字の項を左辺へ移し、同類項をまとめました。</p></div>`;
+      if(p.kind==='one'){
+        if(stage>=2){
+          if(p.eliminate==='direct')content+='<div class="step"><h4>すでに文字が1種類ずつの式です</h4><p>各式の両辺を、文字の係数で割って求められます。</p></div>';
+          else content+=`<div class="step"><h4>${m(p.eliminate)} の項を消す</h4><p>①を ${m(txt(p.factors[0]))} 倍、②を ${m(txt(p.factors[1]))} 倍して、係数をそろえます。</p><div class="g2a-equation-pair">${p.multiplied.map((r,i)=>`<div>${i?'②':'①'}′ ${m(rowText(r))}</div>`).join('')}</div><p>①′から②′を、左辺どうし・右辺どうし引きます。</p><div class="formula">${m(rowText(p.difference))}</div></div>`;
+        }
+        if(stage>=3){const first=p.eliminate==='x'?'y':'x',second=first==='x'?'y':'x',v=first==='x'?p.x:p.y,r=p.rows.find(r=>second==='y'?r.b.n!==0n:r.a.n!==0n);content+=`<div class="step"><h4>係数で割り、もう一方を代入して求める</h4><div class="formula">${m(first+' = '+txt(v))}</div><p>${m(first+'='+txt(v))} を ${m(rowText(r))} に代入して ${m(second)} を求めます。</p><div class="formula">${m(second+' = '+txt(second==='x'?p.x:p.y))}</div></div>`;}
+        if(stage===4)content+=`<div class="result" role="status">${m('x = '+txt(p.x)+', y = '+txt(p.y))}</div><h4>元の2つの方程式に代入して確かめる</h4>${p.rows.map((r,i)=>`<div class="step"><strong>${i?'②':'①'} の検算</strong><div class="formula">左辺：${m(substitute(r.left.source,p.x,p.y)+' = '+txt(valueAt(r.left,p.x,p.y)))}<br>右辺：${m(substitute(r.right.source,p.x,p.y)+' = '+txt(valueAt(r.right,p.x,p.y)))}</div><p>左辺と右辺が等しくなります。</p></div>`).join('')}`;
+      }else if(stage>=2){
+        content+=`<div class="step"><h4>2つの条件の関係を確かめる</h4><p>${p.kind==='none'?'文字の項を消すと、0が0でない数に等しいという矛盾が生じます。同時に成り立つ組はありません。':p.relation?'2つの式は独立した条件になっていません。残る1つの条件を満たす組が無数にあります。':'どちらも整理すると0=0です。x、yの値を制限する条件がありません。'}</p>${p.kind==='many'&&p.relation?`<div class="formula">${m(rowText(p.relation))}</div>`:''}</div>`;
+        if(stage>=3)content+=`<div class="result" role="status">${p.kind==='none'?'解はありません':'解は無数にあります'}</div><p>${p.kind==='none'?'2つの式を同時に満たす x、y の組がない、という意味です。':p.relation?'上の条件を満たすすべての組が解です。x、yをそれぞれ自由に選べる、という意味ではありません。':'すべての実数の組 (x, y) が解です。'}</p>`;
+      }
+      ui.work.innerHTML='<section class="card">'+content+'</section>';stepper(ui,stage,4,render);
+    }
+    function calculate(){try{lastSources=inputs.map(input=>input.value);answer=solve(...lastSources);render(0);}catch(e){answer=null;C.error(ui.work,e);}}
+    for(const input of inputs){input.addEventListener('input',()=>{if(answer&&inputs.every((n,i)=>M.normalize(n.value)===M.normalize(lastSources[i])))return;answer=null;ui.work.innerHTML='<div class="card"><h3>式を編集中</h3><p>2つの式を入力して、計算ボタンかEnterキーを押してください。</p></div>';});input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();calculate();}});}
+    ui.q('[data-g2free-calculate]').onclick=calculate;ui.q('[data-g2free-clear]').onclick=()=>{inputs.forEach(input=>input.value='');inputs[0].dispatchEvent(new Event('input',{bubbles:true}));inputs[0].focus();};ui.q('[data-g2free-guided]').onclick=guided;
+    ui.controls.querySelectorAll('[data-g2free-example]').forEach(button=>button.onclick=()=>{const p=exampleSystems[+button.dataset.g2freeExample];inputs.forEach((input,i)=>input.value=p[i]);calculate();});calculate();window.MathEditor?.refresh();
+  }
+  function enhance(name,lesson){const original=window[name];window[name]=root=>{root.classList.add('g2a-chapter');const host=document.createElement('div');host.style.height='100%';host.style.minHeight='0';root.append(host);const showFree=()=>lesson(host,showGuided);function showGuided(){original(host);const controls=host.querySelector('.controls'),card=document.createElement('div');card.className='card';card.innerHTML='<button type="button" class="button primary" data-g2free-return>式を自由に入力する</button>';card.querySelector('button').onclick=showFree;controls.prepend(card);}showFree();};}
+  window.G2FreeAlgebra={parse,solve,format,text:txt};enhance('initG2Expressions',expressionLesson);enhance('initG2Simultaneous',systemLesson);
+})();
+
+</script>
+<script>
+/* Derive a line from any known slope, intercept, and up to two points. */
+(() => {
+  'use strict';
+  const C=window.Concept,m=C.m,e=C.esc,original=window.initG2Linear;
+  const gcd=(a,b)=>{a=a<0n?-a:a;b=b<0n?-b:b;while(b){const r=a%b;a=b;b=r;}return a||1n;};
+  function rat(n,d=1n){if(d===0n)throw Error('分母を0にはできません。');if(d<0n){n=-n;d=-d;}const g=gcd(n,d);n/=g;d/=g;if(n.toString().length>80||d.toString().length>80)throw Error('数の桁数が大きすぎます。');return {n,d};}
+  const Z=()=>rat(0n),O=()=>rat(1n),add=(a,b)=>rat(a.n*b.d+b.n*a.d,a.d*b.d),neg=a=>rat(-a.n,a.d),sub=(a,b)=>add(a,neg(b)),mul=(a,b)=>rat(a.n*b.n,a.d*b.d),div=(a,b)=>rat(a.n*b.d,a.d*b.n),eq=(a,b)=>a.n===b.n&&a.d===b.d,txt=a=>a.d===1n?String(a.n):`${a.n}/${a.d}`,num=a=>Number(a.n)/Number(a.d);
+  function decimal(s){let sign=1n;if(s[0]==='-'){sign=-1n;s=s.slice(1);}else if(s[0]==='+')s=s.slice(1);const [whole,frac='']=s.split('.');return rat(sign*BigInt((whole||'0')+frac),10n**BigInt(frac.length));}
+  function value(raw,label){
+    const text=M.normalize(raw);if(!text)return null;
+    if(text.length>40||!/^[-+]?(?:\d+(?:\.\d*)?|\.\d+)(?:\/[-+]?(?:\d+(?:\.\d*)?|\.\d+))?$/.test(text))throw Error(`${label}は数で入力してください。小数や -3/2 の形の分数を使えます。`);
+    const pieces=text.split('/');let v=decimal(pieces[0]);if(pieces.length===2)v=div(v,decimal(pieces[1]));
+    if(!Number.isFinite(num(v))||Math.abs(num(v))>10000)throw Error(`${label}は−10000〜10000の範囲で入力してください。`);return v;
+  }
+  function equation(a,b){
+    let t=a.n===0n?'':a.n===a.d?'x':a.n===-a.d?'-x':a.d===1n?`${txt(a)}x`:`(${txt(a)})x`;
+    if(b.n!==0n)t+=(t?(b.n<0n?' - ':' + '):b.n<0n?'-':'')+txt(rat(b.n<0n?-b.n:b.n,b.d));
+    return 'y = '+(t||'0');
+  }
+  function solve(raw){
+    const a=value(raw.a??'','傾き'),b=value(raw.b??'','切片'),points=[];
+    for(let i=1;i<=2;i++){
+      const x=value(raw['x'+i]??'',`点${i}のx座標`),y=value(raw['y'+i]??'',`点${i}のy座標`);
+      if((x===null)!==(y===null))throw Error(`点${i}は、x座標とy座標を両方入力するか、両方空欄にしてください。`);
+      if(x!==null)points.push({x,y,name:i===1?'P':'Q'});
+    }
+    const rows=[];if(a!==null)rows.push({a:O(),b:Z(),c:a,label:'傾き'});if(b!==null)rows.push({a:Z(),b:O(),c:b,label:'切片'});
+    for(const p of points)rows.push({a:p.x,b:O(),c:p.y,label:`点${p.name}`});
+    if(!rows.length)throw Error('傾きと切片、傾きと1点、切片とx座標が0でない1点、またはx座標が異なる2点を入力してください。');
+    if(points.length===2&&eq(points[0].x,points[1].x)&&!eq(points[0].y,points[1].y))throw Error(`2点のx座標が同じでy座標が違うため、通る直線は x = ${txt(points[0].x)} です。これは縦の直線で、y = ax + b の形の関数にはなりません。`);
+    let found=null;
+    for(let i=0;i<rows.length&&!found;i++)for(let j=i+1;j<rows.length&&!found;j++){
+      const r=rows[i],s=rows[j],D=sub(mul(r.a,s.b),mul(s.a,r.b));
+      if(D.n!==0n)found={a:div(sub(mul(r.c,s.b),mul(s.c,r.b)),D),b:div(sub(mul(r.a,s.c),mul(s.a,r.c)),D)};
+      else if(!eq(mul(r.a,s.c),mul(s.a,r.c))||!eq(mul(r.b,s.c),mul(s.b,r.c)))throw Error('入力した条件が矛盾しています。同じ切片や同じ点のy座標に違う値を指定していないか確認してください。');
+    }
+    if(!found){
+      let note=points.length===2&&eq(points[0].x,points[1].x)?'同じ点を2回入力しても、条件は1つです。 ':'';
+      if(b!==null&&points.length&&points.every(p=>p.x.n===0n))note+='x座標が0の点は切片だけを表すので、傾きは決まりません。 ';
+      throw Error(note+'情報が足りず、式は1つに決まりません。別の条件を追加してください。');
+    }
+    for(const r of rows)if(!eq(add(mul(r.a,found.a),mul(r.b,found.b)),r.c))throw Error(`${r.label}がほかの条件と一致しません。入力したすべての条件を満たす y = ax + b はありません。`);
+    if(Math.abs(num(found.a))>1e8||Math.abs(num(found.b))>1e8)throw Error('求められる係数が大きすぎます。点の間隔や入力値を見直してください。');
+    return {...found,knownA:a,knownB:b,points,expression:equation(found.a,found.b)};
+  }
+  function graph(v){
+    const a=num(v.a),b=num(v.b),ps=v.points.map(p=>({x:num(p.x),y:num(p.y),name:p.name}));
+    let xmin=Math.min(-5,...ps.map(p=>p.x)),xmax=Math.max(5,...ps.map(p=>p.x));const xp=(xmax-xmin)*.12;xmin-=xp;xmax+=xp;
+    let ymin=Math.min(-5,b,a*xmin+b,a*xmax+b,...ps.map(p=>p.y)),ymax=Math.max(5,b,a*xmin+b,a*xmax+b,...ps.map(p=>p.y));const yp=(ymax-ymin)*.09;ymin-=yp;ymax+=yp;
+    const W=760,H=360,L=76,R=24,T=24,B=42,X=x=>L+(x-xmin)/(xmax-xmin)*(W-L-R),Y=y=>T+(ymax-y)/(ymax-ymin)*(H-T-B);
+    const nice=span=>{const raw=span/7,p=10**Math.floor(Math.log10(raw)),n=raw/p;return (n<=1?1:n<=2?2:n<=5?5:10)*p;};
+    const tick=n=>Math.abs(n)<1e-10?'0':String(Number(n.toPrecision(5)));
+    let body=`<rect x="${L}" y="${T}" width="${W-L-R}" height="${H-T-B}" fill="#fcfdfb" stroke="#dfe7df"/>`;
+    for(const [lo,hi,step,vertical]of[[xmin,xmax,nice(xmax-xmin),true],[ymin,ymax,nice(ymax-ymin),false]]){
+      for(let i=Math.ceil(lo/step),count=0;i*step<=hi&&count<25;i++,count++){
+        const n=i*step;
+        body+=vertical?`<path d="M${X(n)} ${T}V${H-B}" stroke="#e1e8e1"/><text x="${X(n)}" y="${H-B+22}" text-anchor="middle" font-size="12">${e(tick(n))}</text>`:`<path d="M${L} ${Y(n)}H${W-R}" stroke="#e1e8e1"/><text x="${L-9}" y="${Y(n)+4}" text-anchor="end" font-size="12">${e(tick(n))}</text>`;
+      }
+    }
+    body+=`<path d="M${X(0)} ${T}V${H-B}M${L} ${Y(0)}H${W-R}" stroke="#778b7f" stroke-width="1.6"/><text x="${W-R+8}" y="${Y(0)+5}" font-size="16">x</text><text x="${X(0)+9}" y="${T+10}" font-size="16">y</text><path d="M${X(xmin)} ${Y(a*xmin+b)}L${X(xmax)} ${Y(a*xmax+b)}" stroke="var(--green)" stroke-width="3"/><circle cx="${X(0)}" cy="${Y(b)}" r="5" fill="#b66c42"><title>切片 ${e(txt(v.b))}</title></circle>`;
+    ps.forEach((p,i)=>{const right=X(p.x)>W-110,dy=i===1?21:-12;body+=`<circle cx="${X(p.x)}" cy="${Y(p.y)}" r="6" fill="${i?'#8460a3':'#367b97'}" stroke="white" stroke-width="2"/><text x="${X(p.x)+(right?-10:10)}" y="${Math.max(T+16,Math.min(H-B-8,Y(p.y)+dy))}" text-anchor="${right?'end':'start'}" font-size="16" fill="${i?'#8460a3':'#367b97'}">${p.name}</text>`;});
+    return C.svg(body,{viewBox:`0 0 ${W} ${H}`,label:`${v.expression} のグラフ。指定した点と縦軸上の切片を表示。座標は図の下にも表示します。`});
+  }
+  function steps(v){
+    const list=[],p=v.points[0];
+    list.push({title:'式の形を決める',body:`求める式を ${m('y=ax+b')} とおき、分かっている条件を代入します。`});
+    if(v.knownA!==null&&v.knownB!==null)list.push({title:'傾きと切片を代入する',body:`${m(`a=${txt(v.a)}`)}、${m(`b=${txt(v.b)}`)} なので、${m(v.expression)} です。`});
+    else if(v.knownA!==null)list.push({title:'傾きと1点から切片を求める',body:`点 ${m(`(${txt(p.x)},${txt(p.y)})`)} を代入すると、${m(`${txt(p.y)}=(${txt(v.a)})×(${txt(p.x)})+b`)}。<div class="formula">${m(`b=(${txt(p.y)})-(${txt(v.a)})×(${txt(p.x)})=${txt(v.b)}`)}</div>`});
+    else if(v.knownB!==null){const q=v.points.find(p=>p.x.n!==0n);list.push({title:'切片と1点から傾きを求める',body:`点 ${m(`(${txt(q.x)},${txt(q.y)})`)} を代入すると、${m(`${txt(q.y)}=a×(${txt(q.x)})+(${txt(v.b)})`)}。<div class="formula">${m(`a=((${txt(q.y)})-(${txt(v.b)}))/(${txt(q.x)})=${txt(v.a)}`)}</div>`});}
+    else{const q=v.points[1];list.push({title:'2点の変化の割合から傾きを求める',body:`傾きは「yの増加量 ÷ xの増加量」です。<div class="formula">${m(`a=((${txt(q.y)})-(${txt(p.y)}))/((${txt(q.x)})-(${txt(p.x)}))=${txt(v.a)}`)}</div>`});list.push({title:'1点を使って切片を求める',body:`<div class="formula">${m(`b=(${txt(p.y)})-(${txt(v.a)})×(${txt(p.x)})=${txt(v.b)}`)}</div>`});}
+    list.push({title:'入力した条件をすべて確かめる',body:`${v.points.length?v.points.map(p=>`点${p.name}：${m(`(${txt(v.a)})×(${txt(p.x)})+(${txt(v.b)})=${txt(p.y)}`)}`).join('<br>'):'指定した傾きと切片が式に一致しています。'}<p class="hint">条件を多く入力した場合も、どれか1つだけを使うのではなく、すべて一致することを確かめています。</p>`});
+    return list.map((s,i)=>`<div class="step"><h4>${i+1}. ${s.title}</h4><div>${s.body}</div></div>`).join('');
+  }
+  const presets=[{label:'2点から求める',a:'',b:'',x1:'1',y1:'3',x2:'3',y2:'7'},{label:'傾きと1点',a:'-2',b:'',x1:'3',y1:'1',x2:'',y2:''},{label:'切片と1点',a:'',b:'-1',x1:'4',y1:'1',x2:'',y2:''},{label:'傾きと切片',a:'1/2',b:'2',x1:'',y1:'',x2:'',y2:''}];
+  function init(host,showGuided){
+    const field=(key,label)=>`<label class="field" for="g2-known-${key}">${label}<input id="g2-known-${key}" class="input" type="text" data-g2known="${key}" autocomplete="off" spellcheck="false" placeholder="不明なら空欄"></label>`;
+    const ui=C.frame(host,{intro:'分かっている情報だけを入力します。傾き・切片・最大2点の座標から、式とグラフを求めましょう。',controls:`<div class="card"><h3>分かっている情報</h3>${field('a','傾き a')}${field('b','切片 b')}<h4>通る点P（1点目）</h4><div class="row">${field('x1','x座標')}${field('y1','y座標')}</div><h4>通る点Q（2点目・任意）</h4><div class="row">${field('x2','x座標')}${field('y2','y座標')}</div><div class="g1a-stage-actions"><button type="button" class="button primary" data-g2known-calculate>式とグラフを求める</button><button type="button" class="button" data-g2known-clear>すべて消去</button></div><p class="hint">不明な値は空欄。小数や ${m('-3/2')} の形の分数を使えます。各入力は−10000〜10000です。点を入力するときはx・yの両方を指定します。</p></div><div class="card"><h3>入力例</h3><div class="templates">${presets.map((p,i)=>`<button type="button" data-g2known-example="${i}">${p.label}</button>`).join('')}</div></div><div class="card"><h3>変化を図で学ぶ</h3><button type="button" class="button" data-g2known-guided>傾き・切片を動かす教材</button></div>`});
+    const read=()=>Object.fromEntries([...ui.controls.querySelectorAll('[data-g2known]')].map(input=>[input.dataset.g2known,input.value]));
+    function calculate(){try{const v=solve(read());ui.work.innerHTML=`<section class="card"><span class="badge">条件から一次関数を求める</span><h3>式とグラフ</h3><div class="result" data-g2known-result="${e(v.expression)}" role="status">${m(v.expression)}</div>${v.a.n===0n?`<p class="hint">${m('a=0')} なので水平な直線（定数関数）です。${m('a≠0')} の一次関数とは区別します。</p>`:''}<div class="g2a-graph">${graph(v)}</div><p>${m(`a=${txt(v.a)}`)}、${m(`b=${txt(v.b)}`)}（橙色の点は切片）</p>${v.points.length?`<p>${v.points.map(p=>`点${p.name}：${m(`(${txt(p.x)},${txt(p.y)})`)}`).join('　')}</p>`:''}</section><section class="card"><h3>式を求める流れ</h3>${steps(v)}</section>`;}catch(error){C.error(ui.work,error);}}
+    function set(p){ui.controls.querySelectorAll('[data-g2known]').forEach(input=>input.value=p[input.dataset.g2known]||'');calculate();}
+    ui.controls.querySelectorAll('[data-g2known]').forEach(input=>{input.addEventListener('keydown',event=>{if(event.key==='Enter'){event.preventDefault();calculate();}});input.addEventListener('input',()=>{ui.work.innerHTML='<div class="card"><h3>条件を編集中</h3><p>入力できたら「式とグラフを求める」を押してください。</p></div>';});});
+    ui.q('[data-g2known-calculate]').onclick=calculate;ui.q('[data-g2known-clear]').onclick=()=>{ui.controls.querySelectorAll('input').forEach(input=>input.value='');ui.work.innerHTML='<div class="card"><h3>分かっている条件を入力しましょう</h3><p>例：傾きと切片、傾きと1点、切片とx座標が0でない1点、x座標が異なる2点。</p></div>';ui.q('[data-g2known="a"]').focus();};
+    ui.q('[data-g2known-guided]').onclick=showGuided;ui.controls.querySelectorAll('[data-g2known-example]').forEach(button=>button.onclick=()=>set(presets[Number(button.dataset.g2knownExample)]));set(presets[0]);
+  }
+  window.G2KnownLinear={solve,value,equation,txt};
+  window.initG2Linear=root=>{
+    root.classList.add('g2a-chapter');const host=document.createElement('div');host.style.cssText='height:100%;min-height:0';root.append(host);
+    const showFree=()=>init(host,showGuided);
+    function showGuided(){original(host);const bar=document.createElement('div');bar.className='card';bar.innerHTML='<button type="button" class="button primary" data-g2known-return>分かっている情報から式を求める</button>';bar.querySelector('button').onclick=showFree;host.querySelector('.controls').prepend(bar);}
+    showFree();
+  };
+})();
+
+</script>
+<script>
+/* Year two: angles, polygons, and congruence with explicit reasons. */
+(() => {
+  'use strict';
+  const legacy=window.initG2Angles,C=window.Concept,m=C.m,esc=C.esc;
+  const palette={given:'#b56b42',target:'#367b97',third:'#8460a3',line:'#355854'};
+  const fmt=n=>M.format(n);
+  const rad=d=>d*Math.PI/180;
+  const path=(pts,fill='none',stroke=palette.line,close=false)=>`<path d="M${pts.map(p=>p.join(',')).join('L')}${close?'Z':''}" fill="${fill}" stroke="${stroke}" stroke-width="2.6"/>`;
+  const text=(p,value,color='var(--ink)',size=18)=>`<text x="${p[0]}" y="${p[1]}" text-anchor="middle" fill="${color}" font-size="${size}">${esc(value)}</text>`;
+  const plus=(a,b)=>[a[0]+b[0],a[1]+b[1]],minus=(a,b)=>[a[0]-b[0],a[1]-b[1]],length=a=>Math.hypot(...a),scale=(a,k)=>a.map(v=>v*k);
+  function angleMark(vertex,p,q,color,label='',radius=27,count=1){
+    const start=Math.atan2(p[1]-vertex[1],p[0]-vertex[0]);
+    let delta=Math.atan2(q[1]-vertex[1],q[0]-vertex[0])-start;
+    while(delta>Math.PI)delta-=2*Math.PI;while(delta< -Math.PI)delta+=2*Math.PI;
+    let out='';
+    for(let i=0;i<count;i++){
+      const r=radius+i*6,a=plus(vertex,[r*Math.cos(start),r*Math.sin(start)]),b=plus(vertex,[r*Math.cos(start+delta),r*Math.sin(start+delta)]);
+      out+=`<path d="M${a} A${r} ${r} 0 0 ${delta>0?1:0} ${b}" stroke="${color}" stroke-width="2" fill="none"/>`;
+    }
+    if(label){const r=radius+23+(count-1)*6;out+=text(plus(vertex,[r*Math.cos(start+delta/2),r*Math.sin(start+delta/2)+5]),label,color,18);}
+    return out;
+  }
+  function tick(a,b,count,color){
+    const d=minus(b,a),u=scale(d,1/length(d)),normal=[-u[1],u[0]],mid=scale(plus(a,b),.5);let out='';
+    for(let i=0;i<count;i++){const p=plus(mid,scale(u,(i-(count-1)/2)*7));out+=path([plus(p,scale(normal,7)),plus(p,scale(normal,-7))],'none',color);}
+    return out;
+  }
+  function vertexLabels(points,names){
+    const center=scale(points.reduce((a,b)=>plus(a,b),[0,0]),1/points.length);
+    return points.map((p,i)=>{const d=minus(p,center);return text(plus(p,plus(scale(d,21/Math.max(length(d),1)),[0,5])),names[i]);}).join('');
+  }
+  function stepButtons(stage,last){return `<div class="g2sd-actions"><button type="button" class="button" data-g2x-back ${stage===0?'disabled':''}>← 前の説明</button><span class="badge">${stage+1} / ${last+1}</span><button type="button" class="button primary" data-g2x-next ${stage===last?'disabled':''}>次の説明 →</button><button type="button" class="button" data-g2x-all>解説をすべて表示</button></div>`;}
+  function wireSteps(work,get,set,render,last){
+    work.querySelector('[data-g2x-back]')?.addEventListener('click',()=>{set(Math.max(0,get()-1));render();});
+    work.querySelector('[data-g2x-next]')?.addEventListener('click',()=>{set(Math.min(last,get()+1));render();});
+    work.querySelector('[data-g2x-all]')?.addEventListener('click',()=>{set(last);render();});
+  }
+  function triangleLesson(host){
+    const ui=C.frame(host,{intro:'内角は三角形の内側の角。外角は、辺を延ばしてできる隣の角です。2つの関係から、分からない角を求めます。',controls:`<label class="field">求める角<select class="input" data-g2x-triangle-kind><option value="interior">内角モード：角B</option><option value="exterior">外角モード：角CBE</option></select></label><label class="field">角A（度）<input class="input" type="number" min="1" max="178" step="1" value="50" data-g2x-triangle-a></label><label class="field">角C（度）<input class="input" type="number" min="1" max="178" step="1" value="60" data-g2x-triangle-c></label><p class="hint">角Aと角Cは1°以上の整数、和は179°以下です。外角モードでは辺ABをBの先のEまで延ばします。</p><button type="button" class="button primary" data-g2x-triangle-solve>角度を求める</button><div class="templates"><button type="button" data-g2x-triangle-example="50,60">基本の例</button><button type="button" data-g2x-triangle-example="25,35">内角が鈍角になる例</button><button type="button" data-g2x-triangle-example="100,40">外角が鈍角になる例</button></div>`});
+    let stage=0;
+    function render(){try{
+      const a=C.number(ui.q('[data-g2x-triangle-a]'),1,178,{integer:true,label:'角A'}),c=C.number(ui.q('[data-g2x-triangle-c]'),1,178,{integer:true,label:'角C'});
+      if(a+c>=180)throw Error('角Aと角Cの和を180°より小さくしてください。');
+      const b=180-a-c,ext=a+c,exterior=ui.q('[data-g2x-triangle-kind]').value==='exterior';
+      const ratio=Math.sin(rad(b))/Math.sin(rad(c)),raw=[[0,0],[1,0],[ratio*Math.cos(rad(a)),ratio*Math.sin(rad(a))]],xs=raw.map(p=>p[0]),ys=raw.map(p=>p[1]);
+      const minX=Math.min(...xs),maxX=Math.max(...xs),s=Math.min(440/(maxX-minX),205/Math.max(...ys));
+      const points=raw.map(p=>[95+(p[0]-minX)*s,285-p[1]*s]),[A,B,D]=points,E=[Math.min(710,B[0]+130),B[1]];
+      let body=path(points,'#edf4ee',palette.line,true)+vertexLabels(points,['A','B','C']);
+      body+=angleMark(A,B,D,palette.given,`${a}°`,22)+angleMark(D,A,B,palette.given,`${c}°`,22);
+      if(exterior){body+=path([B,E],'none',palette.third)+text([E[0]+13,E[1]+7],'E',palette.third)+angleMark(B,D,E,palette.target,stage?`${ext}°`:'?',27);if(stage>=1)body+=angleMark(B,A,D,palette.third,`${b}°`,20);}
+      else body+=angleMark(B,A,D,palette.target,stage?`${b}°`:'?',27);
+      const formulas=exterior?[`180-${a}-${c}=${b}`,`${b}+${ext}=180`,`180-(${fmt(b)})=${a}+${c}=${ext}`]:[`180-${a}-${c}=${b}`];
+      ui.work.innerHTML=`<span class="badge">${exterior?'三角形の外角':'三角形の内角'}</span><h3>${exterior?'外角は、隣り合わない2つの内角の和':'三角形の3つの内角の和は180°'}</h3>${C.svg(body,{label:`角Aが${a}度、角Cが${c}度の三角形ABC。${exterior?'ABをBの先のEまで延ばした角CBEを求める。':'角Bを求める。'}`,viewBox:'0 0 760 360'})}<section class="card"><h4>${stage===0?'分かっている角と、求める角を区別する':stage===1?'三角形の内角の和を使う':'式と理由をつなげる'}</h4><p>分かっている内角は、角A＝${a}°、角C＝${c}°です。${exterior?'求める外角CBEは、内角Bと隣り合っています。':'内角の和180°から、この2つの角を引きます。'}</p>${stage>=1?`<div class="formula">内角B：${m(formulas[0])}°</div>`:''}${stage>=2?exterior?`<p>内角Bと外角CBEは一直線の角なので、和は180°です。</p><div class="formula">${m(formulas[1])}°</div><p>外角は180°から内角Bを引いて求めます。これは、隣り合わない内角Aと内角Cの和と同じです。</p><div class="result" data-g2x-triangle-answer="${ext}">外角CBE：${m(formulas[2])}°</div>`:`<div class="result" data-g2x-triangle-answer="${b}">内角B＝${b}°</div><p>3つの内角を足すと、${a}＋${b}＋${c}＝180°になり、確かめられます。</p>`:''}</section>${stepButtons(stage,2)}`;
+      wireSteps(ui.work,()=>stage,n=>stage=n,render,2);
+    }catch(e){C.error(ui.work,e);}}
+    ui.controls.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',()=>{stage=0;render();}));
+    ui.q('[data-g2x-triangle-solve]').onclick=()=>{stage=2;render();};
+    ui.controls.querySelectorAll('input').forEach(e=>e.addEventListener('keydown',event=>{if(event.key==='Enter'){stage=2;render();}}));
+    ui.controls.querySelectorAll('[data-g2x-triangle-example]').forEach(e=>e.onclick=()=>{const [a,c]=e.dataset.g2xTriangleExample.split(',');ui.q('[data-g2x-triangle-a]').value=a;ui.q('[data-g2x-triangle-c]').value=c;stage=0;render();});render();
+  }
+  function polygonLesson(host){
+    const ui=C.frame(host,{intro:'多角形を三角形に分けて内角の和を考えます。外角は、辺に沿って一周したときの向きの変化です。',controls:`<label class="field">頂点の数 n<input class="input" type="number" min="3" max="20" step="1" value="5" data-g2x-polygon-n></label><label class="field">調べる角<select class="input" data-g2x-polygon-kind><option value="interior">内角の和</option><option value="exterior">外角の和</option></select></label><label class="field" style="display:flex;gap:8px;align-items:center"><input type="checkbox" checked data-g2x-polygon-regular>正多角形として、1つの角も求める</label><p class="hint">3〜20角形に対応します。ここで扱うのは、へこんでいない凸多角形です。正多角形でないときは、角の和だけでは1つずつの角は決まりません。</p><button type="button" class="button primary" data-g2x-polygon-solve>角度を求める</button>`});
+    let stage=0;
+    function render(){try{
+      const n=C.number(ui.q('[data-g2x-polygon-n]'),3,20,{integer:true,label:'頂点の数'}),regular=ui.q('[data-g2x-polygon-regular]').checked,exterior=ui.q('[data-g2x-polygon-kind]').value==='exterior',sum=(n-2)*180;
+      // An invertible affine map keeps the non-regular demonstration convex.
+      const pts=Array.from({length:n},(_,i)=>{const a=2*Math.PI*i/n-Math.PI/2,x=125*Math.cos(a),y=125*Math.sin(a);return [325+x+(regular?0:.28*y),180+y*(regular?1:.78)];});
+      let body=path(pts,'#edf4ee',palette.line,true);
+      if(!exterior&&stage>=1)for(let i=2;i<n-1;i++)body+=path([pts[0],pts[i]],'none',palette.target);
+      if(exterior){
+        pts.forEach((p,i)=>{const prev=pts[(i+n-1)%n],next=pts[(i+1)%n],v=minus(p,prev),end=plus(p,scale(v,38/length(v)));body+=path([p,end],'none',palette.third)+angleMark(p,end,next,palette.target,regular&&i===0&&stage>=2?`${fmt(360/n)}°`:'',n>10?12:20);});
+        body+=text([585,137],'一周すると向きが',palette.line,18)+text([585,175],'360°変わる',palette.target,22);
+      }else body+=text([585,137],stage>=1?`${n-2}個の三角形`:'1つの頂点から',palette.line,18)+text([585,175],stage>=1?'に分けられる':'対角線を引こう',palette.target,20);
+      ui.work.innerHTML=`<span class="badge">${regular?'正':''}${n}角形 · ${exterior?'外角':'内角'}</span><h3>${exterior?'凸多角形の外角の和は360°':'内角の和は、三角形の個数×180°'}</h3>${C.svg(body,{label:`${regular?'正':''}${n}角形。${exterior?'各頂点で同じ向きに進む外角を示す。':'1つの頂点から対角線を引くと'+(n-2)+'個の三角形に分かれる。'}`,viewBox:'0 0 760 360'})}<section class="card"><h4>${exterior?'各頂点で、進む向きがどれだけ変わる？':'いくつの三角形に分けられる？'}</h4><p>${exterior?'辺に沿って同じ向きに一周すると、最初と同じ方向に戻ります。各頂点の外角を1つずつ足すと、1回転の360°になります。':'1つの頂点から、隣り合わない頂点へ対角線を引きます。できる三角形は頂点の数より2個少なくなります。'}</p>${stage>=1?`<div class="formula">${exterior?'外角の和＝360°':m(`(${n}-2)×180=${sum}`)+'°'}</div>`:''}${stage>=2?`<div class="result" data-g2x-polygon-sum="${exterior?360:sum}">${exterior?'外角':'内角'}の和＝${exterior?360:sum}°</div>${regular?`<p>正多角形では、すべての内角・外角がそれぞれ等しいので、和を${n}で割れます。</p><div class="formula" data-g2x-polygon-each="${exterior?360/n:sum/n}">1つの${exterior?'外角':'内角'}：${m(`${exterior?360:sum}/${n}=${fmt((exterior?360:sum)/n)}`)}°</div>`:'<p><strong>正多角形とは限らないので、1つの角を「角の和÷頂点の数」で求めることはできません。</strong></p>'}`:''}</section>${stepButtons(stage,2)}`;
+      wireSteps(ui.work,()=>stage,n=>stage=n,render,2);
+    }catch(e){C.error(ui.work,e);}}
+    ui.controls.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',()=>{stage=0;render();}));ui.q('[data-g2x-polygon-solve]').onclick=()=>{stage=2;render();};render();
+  }
+  const conditions=[{key:'sss',label:'3組の辺がそれぞれ等しい',givens:['AB＝DE','BC＝EF','CA＝FD'],why:'3組の対応する辺の長さがすべてそろっています。角の等しさを先に仮定する必要はありません。'},{key:'sas',label:'2組の辺とその間の角がそれぞれ等しい',givens:['AB＝DE','AC＝DF','角BAC＝角EDF'],why:'角AはABとACの間、角DはDEとDFの間です。2辺だけでなく、その間の角が等しいことが必要です。'},{key:'asa',label:'1組の辺とその両端の角がそれぞれ等しい',givens:['AB＝DE','角BAC＝角EDF','角ABC＝角DEF'],why:'等しい辺ABとDEの両端にある角A・Bと角D・Eが、それぞれ等しいことを使います。'}];
+  let randomCounter=0;
+  function congruenceProblem(previous){
+    const choices=[[40,60],[45,70],[35,85],[55,50],[30,65],[65,40]],pair=choices[Math.floor(Math.random()*choices.length)],a=pair[0],b=pair[1],c=180-a-b,base=4+Math.floor(Math.random()*5),side=base*Math.sin(rad(b))/Math.sin(rad(c));
+    let key=Math.floor(Math.random()*3);if(previous&&conditions[key].key===previous.kind.key)key=(key+1+Math.floor(Math.random()*2))%3;
+    const angle=40+Math.floor(Math.random()*26)*10,mirror=Math.random()<.5?-1:1;
+    return {id:++randomCounter,kind:conditions[key],angles:[a,b,c],vertices:[[0,0],[base,0],[side*Math.cos(rad(a)),side*Math.sin(rad(a))]],angle,mirror};
+  }
+  function congruenceDiagram(problem){
+    const raw=problem.vertices,theta=rad(problem.angle),rot=raw.map(([x,y])=>[problem.mirror*x*Math.cos(theta)-y*Math.sin(theta),problem.mirror*x*Math.sin(theta)+y*Math.cos(theta)]),sets=[raw,rot];
+    const bounds=sets.map(p=>({minX:Math.min(...p.map(x=>x[0])),maxX:Math.max(...p.map(x=>x[0])),minY:Math.min(...p.map(x=>x[1])),maxY:Math.max(...p.map(x=>x[1]))}));
+    const s=Math.min(...bounds.flatMap(b=>[250/(b.maxX-b.minX),235/(b.maxY-b.minY)]));
+    const points=sets.map((set,i)=>{const b=bounds[i];return set.map(([x,y])=>[(i?565:195)+(x-(b.minX+b.maxX)/2)*s,180-(y-(b.minY+b.maxY)/2)*s]);});
+    let body='';
+    points.forEach((p,i)=>{
+      body+=path(p,i?'#f7efe6':'#edf4ee',palette.line,true)+vertexLabels(p,i?['D','E','F']:['A','B','C']);
+      if(problem.kind.key==='sss')body+=tick(p[0],p[1],1,palette.given)+tick(p[1],p[2],2,palette.target)+tick(p[2],p[0],3,palette.third);
+      if(problem.kind.key==='sas')body+=tick(p[0],p[1],1,palette.given)+tick(p[0],p[2],2,palette.target)+angleMark(p[0],p[1],p[2],palette.third,'',24);
+      if(problem.kind.key==='asa')body+=tick(p[0],p[1],1,palette.given)+angleMark(p[0],p[1],p[2],palette.target,'',24)+angleMark(p[1],p[0],p[2],palette.third,'',20,2);
+    });
+    return C.svg(body,{label:`三角形ABCと三角形DEF。${problem.kind.givens.join('、')}が仮定。同じ印のついた辺や角は等しい。`,viewBox:'0 0 760 360'});
+  }
+  function congruenceLesson(host){
+    const ui=C.frame(host,{intro:'図に印で示された仮定から、使える合同条件を選びます。図の向きや見た目ではなく、対応する辺・角を確かめましょう。',controls:`<div class="card"><h3>合同条件を見つける</h3><button type="button" class="button primary" data-g2x-congruence-new>新しい問題</button><p class="hint">辺の短い線、角の弧の数が同じものは等しいという仮定です。新しい問題では、図形の形・向き・使う条件が変わります。</p></div><div class="card"><h3>証明の順序</h3><ol style="padding-left:20px;line-height:1.9"><li>比べる三角形を書く</li><li>仮定から3つの等しさをそろえる</li><li>合同条件を選ぶ</li><li>対応をそろえて結論を書く</li></ol><p class="hint">合同が分かった後に、対応する辺や角が等しいといえます。まだ示していない結論を、途中の根拠にしないようにします。</p></div>`});
+    let problem=congruenceProblem(),choice='',stage=0,feedback='';
+    function render(){
+      const p=problem,k=p.kind,correct=choice===k.key;
+      const proof=[{title:'比べる三角形を明確にする',body:'三角形ABCと三角形DEFにおいて、対応を AとD、BとE、CとF にそろえます。向きが違っても、この対応で辺と角を比べられます。'},{title:'3つの等しさを、理由と一緒に書く',body:k.givens.map(g=>g+'（仮定）').join('、')+'。図の印が、それぞれの等しさを表しています。'},{title:'合同条件に当てはめる',body:k.label+'ので、2つの三角形は合同です。'+k.why},{title:'対応順に結論を書く',body:'したがって、△ABC≡△DEF。合同な図形では対応する辺・角も等しいので、この後の角度や辺の長さの証明に使えます。'}];
+      ui.work.innerHTML=`<span class="badge" data-g2x-congruence-id="${p.id}">合同の問題 ${p.id}</span><h3>仮定から、どの合同条件が使える？</h3>${congruenceDiagram(p)}<div class="g2sd-givens"><strong>仮定</strong>：${k.givens.map(esc).join('、')}<br><strong>示すこと</strong>：三角形ABCと三角形DEFが合同である。</div><div class="g2sd-reasons">${conditions.map(c=>`<button type="button" class="button${choice===c.key?' secondary':''}" data-g2x-congruence-choice="${c.key}" aria-pressed="${choice===c.key}">${c.label}</button>`).join('')}</div>${feedback?`<p class="g2sd-feedback" role="status" data-g2x-congruence-feedback>${esc(feedback)}</p>`:''}<div class="g2sd-actions"><button type="button" class="button" data-g2x-congruence-explain>解説で確かめる</button></div>${stage?`<section class="card"><h3>合同の証明の流れ</h3><div class="g2sd-proof-log">${proof.slice(0,stage).map((s,i)=>`<div><span>${i+1}</span><section><strong>${esc(s.title)}</strong><p>${esc(s.body)}</p></section></div>`).join('')}</div>${stage===4?'<div class="result">△ABC≡△DEF<br><small>対応：A↔D、B↔E、C↔F</small></div>':''}<div class="g2sd-actions"><button type="button" class="button" data-g2x-proof-back ${stage===1?'disabled':''}>← 前の説明</button><span class="badge">${stage} / 4</span><button type="button" class="button primary" data-g2x-proof-next ${stage===4?'disabled':''}>次の説明 →</button><button type="button" class="button" data-g2x-proof-all>証明をすべて表示</button></div></section>`:''}`;
+      ui.work.querySelectorAll('[data-g2x-congruence-choice]').forEach(button=>button.onclick=()=>{choice=button.dataset.g2xCongruenceChoice;if(choice===k.key){feedback='正解です。'+k.why;stage=1;}else{feedback='この仮定だけでは、選んだ条件に必要な辺や角がそろっていません。印の付いている辺と角をもう一度確認しましょう。';stage=0;}render();});
+      ui.work.querySelector('[data-g2x-congruence-explain]').onclick=()=>{feedback='この図で使える条件は「'+k.label+'」です。'+k.why;stage=4;render();};
+      ui.work.querySelector('[data-g2x-proof-back]')?.addEventListener('click',()=>{stage=Math.max(1,stage-1);render();});
+      ui.work.querySelector('[data-g2x-proof-next]')?.addEventListener('click',()=>{stage=Math.min(4,stage+1);render();});
+      ui.work.querySelector('[data-g2x-proof-all]')?.addEventListener('click',()=>{stage=4;render();});
+    }
+    ui.q('[data-g2x-congruence-new]').onclick=()=>{problem=congruenceProblem(problem);choice='';stage=0;feedback='';render();};render();
+  }
+  window.initG2Angles=root=>{
+    root.classList.add('g2sd-chapter');
+    const shell=document.createElement('div');shell.style.cssText='height:100%;min-height:0;display:flex;flex-direction:column;gap:12px';
+    shell.innerHTML='<div style="display:flex;gap:12px;align-items:center;flex-shrink:0"><label for="g2AnglesSection" style="font-size:14px;font-weight:700">学ぶ内容</label><select id="g2AnglesSection" class="input" style="width:auto;max-width:100%;margin:0" data-g2x-section><option value="parallel">平行線と横断線</option><option value="triangle">三角形の内角・外角</option><option value="polygon">多角形の内角・外角</option><option value="congruence">合同条件と証明</option></select></div><div data-g2x-host style="flex:1;min-height:0"></div>';
+    root.append(shell);const host=shell.querySelector('[data-g2x-host]');
+    function render(){
+      host.replaceChildren();const section=shell.querySelector('[data-g2x-section]').value;
+      if(section==='parallel'){legacy(host);host.querySelector('[data-g2-angle-mode]').closest('label').hidden=true;}
+      else if(section==='triangle')triangleLesson(host);
+      else if(section==='polygon')polygonLesson(host);
+      else congruenceLesson(host);
+      window.MathEditor?.refresh();
+    }
+    shell.querySelector('[data-g2x-section]').onchange=render;render();
+  };
+  window.G2AnglesExtensions={conditions,congruenceProblem};
+})();
+
+</script>
+<script>
+/* Year-two triangles and quadrilaterals: facts, practice and explained proofs. */
+(() => {
+  'use strict';
+  const C=Concept, oldInit=window.initG2Proof;
+  const ink='#314e4b',orange='#b77447',blue='#367f87',purple='#78619f';
+  const esc=C.esc,m=C.m;
+  const pick=a=>a[Math.floor(Math.random()*a.length)];
+  const text=(p,s,dx=0,dy=0,color=ink)=>`<text x="${p[0]+dx}" y="${p[1]+dy}" text-anchor="middle" font-size="18" fill="${color}">${esc(s)}</text>`;
+  const line=(a,b,color=ink,extra='')=>`<path d="M${a}L${b}" stroke="${color}" stroke-width="2.5" fill="none" ${extra}/>`;
+  const midpoint=(a,b)=>[(a[0]+b[0])/2,(a[1]+b[1])/2];
+  const poly=(pts,fill='#e7f2ed')=>`<polygon points="${pts.map(p=>p.join(',')).join(' ')}" fill="${fill}" stroke="${ink}" stroke-width="2.5"/>`;
+  function tick(a,b,count=1,color=orange){const p=midpoint(a,b),len=Math.hypot(b[0]-a[0],b[1]-a[1]),u=[(b[0]-a[0])/len,(b[1]-a[1])/len],v=[-u[1],u[0]];let out='';for(let i=0;i<count;i++){const d=(i-(count-1)/2)*8,c=[p[0]+d*u[0],p[1]+d*u[1]];out+=line([c[0]-v[0]*7,c[1]-v[1]*7],[c[0]+v[0]*7,c[1]+v[1]*7],color);}return out;}
+  function arrow(a,b,count=1,color=blue){const p=midpoint(a,b),len=Math.hypot(b[0]-a[0],b[1]-a[1]),u=[(b[0]-a[0])/len,(b[1]-a[1])/len],v=[-u[1],u[0]];let out='';for(let i=0;i<count;i++){const d=(i-(count-1)/2)*12,c=[p[0]+d*u[0],p[1]+d*u[1]];out+=`<path d="M${c[0]-u[0]*7+v[0]*5},${c[1]-u[1]*7+v[1]*5}L${c}L${c[0]-u[0]*7-v[0]*5},${c[1]-u[1]*7-v[1]*5}" fill="none" stroke="${color}" stroke-width="2.5"/>`;}return out;}
+  function angleMark(vertex,a,b,label,color=orange,r=26){const va=[a[0]-vertex[0],a[1]-vertex[1]],vb=[b[0]-vertex[0],b[1]-vertex[1]],la=Math.hypot(...va),lb=Math.hypot(...vb),u=va.map(x=>x/la),v=vb.map(x=>x/lb),p=[vertex[0]+r*u[0],vertex[1]+r*u[1]],q=[vertex[0]+r*v[0],vertex[1]+r*v[1]],sum=[u[0]+v[0],u[1]+v[1]],ls=Math.hypot(...sum),cross=u[0]*v[1]-u[1]*v[0];return `<path d="M${p}A${r},${r} 0 0 ${cross>0?1:0} ${q}" fill="none" stroke="${color}" stroke-width="2.5"/>`+(label?text([vertex[0]+(r+20)*sum[0]/ls,vertex[1]+(r+20)*sum[1]/ls],label,0,5,color):'');}
+  function rightMark(vertex,a,b){const u=[a[0]-vertex[0],a[1]-vertex[1]],v=[b[0]-vertex[0],b[1]-vertex[1]],l=Math.hypot(...u),k=Math.hypot(...v),p=[vertex[0]+14*u[0]/l,vertex[1]+14*u[1]/l],q=[p[0]+14*v[0]/k,p[1]+14*v[1]/k],r=[vertex[0]+14*v[0]/k,vertex[1]+14*v[1]/k];return `<path d="M${p}L${q}L${r}" fill="none" stroke="${blue}" stroke-width="2"/>`;}
+  function normalizePoints(pts,box){const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]),minX=Math.min(...xs),minY=Math.min(...ys),w=Math.max(...xs)-minX,h=Math.max(...ys)-minY,s=Math.min(box.w/w,box.h/h);return pts.map(p=>[box.x+(box.w-w*s)/2+(p[0]-minX)*s,box.y+(box.h-h*s)/2+(p[1]-minY)*s]);}
+  const button=(label,attr,primary=false)=>`<button type="button" class="button${primary?' primary':''}" ${attr}>${label}</button>`;
+  const congruenceChoices=['斜辺と他の1辺がそれぞれ等しい','斜辺と1つの鋭角がそれぞれ等しい','1辺と直角がそれぞれ等しい'];
+  const conditions=[
+    {key:'parallel',name:'2組の対辺がそれぞれ平行',given:'AB∥CD、AD∥BC',steps:[['定義を確認する','平行四辺形とは、2組の対辺がそれぞれ平行な四角形です。'],['仮定と定義を結ぶ','仮定から AB∥CD、AD∥BC。2組とも平行であることが与えられています。'],['結論','定義より、四角形ABCDは平行四辺形です。']]},
+    {key:'sides',name:'2組の対辺がそれぞれ等しい',given:'AB＝CD、BC＝DA',steps:[['補助線を引く','対角線ACを引き、△ABCと△CDAを比べます。'],['合同を示す','AB＝CD、BC＝DA（仮定）、AC＝CA（共通）。3組の辺がそれぞれ等しいので、△ABC≡△CDA。対応は A↔C、B↔D、C↔A です。'],['平行を導く','合同な図形の対応する角より、∠BAC＝∠DCA、∠BCA＝∠DAC。錯角が等しいので、AB∥CD、BC∥AD。'],['結論','2組の対辺がそれぞれ平行なので、定義より平行四辺形です。']]},
+    {key:'angles',name:'2組の対角がそれぞれ等しい',given:'∠A＝∠C、∠B＝∠D',steps:[['四角形の内角の和を使う','∠A＋∠B＋∠C＋∠D＝360°です。'],['隣り合う角の和を求める','仮定を代入すると 2(∠A＋∠B)＝360°。したがって ∠A＋∠B＝180°。また∠D＝∠Bより ∠A＋∠D＝180°。'],['平行を導く','∠A＋∠B＝180°から AD∥BC、∠A＋∠D＝180°から AB∥CD。同側内角が180°なら平行です（錯角が等しいことからも示せます）。'],['結論','2組の対辺がそれぞれ平行なので、平行四辺形です。']]},
+    {key:'pair',name:'1組の対辺が平行で、その長さも等しい',given:'AB∥CD、AB＝CD（同じ1組）',steps:[['補助線を引く','対角線ACを引き、△BACと△DCAを比べます。'],['合同を示す','BA＝DC（仮定）、AC＝CA（共通）。AB∥CDより∠BAC＝∠DCA（錯角）。2組の辺とその間の角がそれぞれ等しいので、△BAC≡△DCA。'],['もう1組の平行を導く','対応する角より∠BCA＝∠DAC。錯角が等しいので BC∥AD です。'],['結論','AB∥CDは仮定、BC∥ADは今示しました。2組の対辺がそれぞれ平行なので、平行四辺形です。']]},
+    {key:'diagonals',name:'対角線がそれぞれの中点で交わる',given:'対角線AC・BDの交点をOとして AO＝CO、BO＝DO',steps:[['交点を中心に三角形を比べる','△AOBと△CODで、AO＝CO、BO＝DO（仮定）、∠AOB＝∠COD（対頂角）。'],['1組の平行を導く','2組の辺とその間の角より△AOB≡△COD。対応する角∠ABO＝∠CDOより、錯角が等しいので AB∥CD。'],['もう1組も同様に示す','△AODと△COBで、AO＝CO、DO＝BO、∠AOD＝∠COB。2組の辺とその間の角より合同。∠ADO＝∠CBOより AD∥CB。'],['結論','2組の対辺がそれぞれ平行なので、平行四辺形です。Oが両方の対角線の中点であることが必要です。']]}
+  ];
+  window.initG2Proof=root=>{
+    root.classList.add('g2sd-chapter');
+    const host=document.createElement('div');host.style.cssText='height:100%;min-height:0';root.append(host);
+    let mode='isosceles',serial=Math.floor(Math.random()*12),revealed=false,proofStep=0,choice=-1,feedback='',answerDraft='',problem;
+    const modes=[['isosceles','二等辺三角形：定義・定理と問題'],['parallelogram','平行四辺形：定義・定理と問題'],['right','直角三角形の合同'],['conditions','平行四辺形になるための条件'],['legacy','従来の証明を組み立てる教材']];
+    function generate(){
+      const angle=pick([40,50,60,70,80,90,100,110,120]);
+      problem={type:serial%3,angle,n:pick([5,6,7,8,9,10,12]),half:pick([3,4,5,6,7,8]),rotation:pick([-25,-15,15,25]),flip:Math.random()<.5,case:serial%5,rightCase:serial%2,acute:pick([30,40,50,60]),k:pick([1,2,3])};
+      revealed=false;proofStep=0;choice=-1;feedback='';answerDraft='';
+    }
+    function initialize(){
+      const ui=C.frame(host,{intro:'定義と定理を区別し、与えられた角・辺から計算や証明を進めます。',controls:`<label class="field">学ぶ内容<select class="input" data-g2p-mode>${modes.map(([v,t])=>`<option value="${v}" ${v===mode?'selected':''}>${t}</option>`).join('')}</select></label>${button('新しい問題・図にする','data-g2p-new',true)}<p class="hint">図形や数値は問題ごとに変わります。角や辺の印は「与えられた条件」です。図の見た目だけで判断しないでください。</p><div data-g2p-extra></div>`});
+      ui.q('[data-g2p-mode]').onchange=e=>{mode=e.target.value;serial++;generate();if(mode==='legacy')legacy();else initialize();};
+      ui.q('[data-g2p-new]').onclick=()=>{serial++;generate();render(ui);};
+      render(ui);
+    }
+    function legacy(){oldInit(host);const controls=host.querySelector('.controls'),back=document.createElement('div');back.className='card';back.innerHTML=button('定義・定理と新しい問題へ戻る','data-g2p-back',true);back.querySelector('button').onclick=()=>{mode='isosceles';initialize();};controls.prepend(back);}
+    function facts(title,definition,theorems,lead='定義',listTitle='成り立つ定理・性質'){return `<section class="card"><h3>${title}</h3><p><strong>${lead}：</strong>${definition}</p><h4>${listTitle}</h4><ul>${theorems.map(t=>`<li style="line-height:1.9">${t}</li>`).join('')}</ul></section>`;}
+    function answerPanel(question,answer,explanation,unit){return `<section class="card"><span class="badge">練習問題</span><h3>${question}</h3><label class="field">答え（${unit}）<input class="input" type="number" step="any" data-g2p-answer value="${esc(answerDraft)}" aria-label="問題の答え"></label><div class="g2sd-actions">${button('答え合わせ','data-g2p-check',true)}${button('答えと解説を表示','data-g2p-reveal')}</div><p class="g2sd-feedback" role="status" data-g2p-feedback>${feedback}</p>${revealed?`<div class="result" data-g2p-result="${answer}">答え：${answer} ${unit}</div><p>${explanation}</p>`:''}</section>`;}
+    function isoDiagram(p){const a=p.angle*Math.PI/180,A=[0,0],B=[-Math.sin(a/2),Math.cos(a/2)],D=[Math.sin(a/2),Math.cos(a/2)],pts=normalizePoints([A,B,D],{x:155,y:35,w:450,h:215}),[P,Q,R]=pts;let out=poly(pts)+tick(P,Q)+tick(P,R)+text(P,'A',0,-15)+text(Q,'B',-17,20)+text(R,'C',17,20);if(p.type===0)out+=angleMark(P,Q,R,`${p.angle}°`)+angleMark(Q,P,R,'x°',blue);else if(p.type===1)out+=angleMark(Q,P,R,`${(180-p.angle)/2}°`)+angleMark(P,Q,R,'x°',blue);else out+=text(midpoint(P,Q),`${p.n} cm`,-35,0)+text(midpoint(P,R),'x cm',35,0,blue);return C.svg(out,{label:'ABとACが等しい二等辺三角形ABCの問題',viewBox:'0 0 760 300'});}
+    function paraPoints(){const a=problem.angle*Math.PI/180,w=230,v=[100*Math.cos(a),100*Math.sin(a)];return normalizePoints([[0,0],[w,0],[w+v[0],v[1]],[v[0],v[1]]],{x:170,y:65,w:430,h:180});}
+    function paraDiagram(kind='exercise',condition=null){const [A,B,D,E]=paraPoints(),O=midpoint(A,D);let out=poly([A,B,D,E])+text(A,'A',-16,-14)+text(B,'B',16,-14)+text(D,'C',16,22)+text(E,'D',-16,22);
+      if(kind==='exercise'){
+        out+=arrow(A,B)+arrow(E,D)+arrow(A,E,2)+arrow(B,D,2);
+        if(problem.type===0)out+=text(midpoint(A,B),`${problem.n} cm`,0,-18)+text(midpoint(E,D),'x cm',0,24,blue);
+        else if(problem.type===1)out+=angleMark(A,B,E,`${problem.angle}°`)+angleMark(B,A,D,'x°',blue);
+        else out+=line(A,D,orange)+line(B,E,purple)+text(O,'O',0,-12)+text(midpoint(A,O),`${problem.half} cm`,0,-12)+text(midpoint(O,D),'x cm',0,20,blue);
+      }else{
+        if(['sides','pair','parallel'].includes(condition)){if(condition!=='sides')out+=arrow(A,B)+arrow(E,D);if(condition==='parallel')out+=arrow(A,E,2)+arrow(B,D,2);if(condition!=='parallel')out+=tick(A,B)+tick(E,D);if(condition==='sides')out+=tick(A,E,2)+tick(B,D,2);}
+        if(condition==='angles')out+=angleMark(A,B,E,'',orange)+angleMark(D,B,E,'',orange)+angleMark(B,A,D,'',purple,34)+angleMark(E,A,D,'',purple,34);
+        if(condition==='diagonals'){out+=line(A,D,blue)+line(B,E,purple)+tick(A,O)+tick(O,D)+tick(B,O,2)+tick(O,E,2)+text(O,'O',0,-12);}
+        else if(proofStep>0&&condition!=='angles'&&condition!=='parallel')out+=line(A,D,blue,'stroke-dasharray="6 4"');
+      }
+      return C.svg(out,{label:kind==='exercise'?'平行四辺形ABCDの辺・角・対角線の問題':`四角形ABCD。仮定：${conditions.find(c=>c.key===condition)?.given||''}`,viewBox:'0 0 760 300'});
+    }
+    function rightDiagram(){
+      const angle=problem.acute,rad=angle*Math.PI/180;
+      const raw=problem.rightCase===0?[[0,0],[4,0],[0,3]]:[[0,0],[Math.cos(rad),0],[0,Math.sin(rad)]];
+      const theta=problem.rotation*Math.PI/180,rot=raw.map(([x,y])=>[(problem.flip?-1:1)*(x*Math.cos(theta)-y*Math.sin(theta)),x*Math.sin(theta)+y*Math.cos(theta)]);
+      const bounds=pts=>({x0:Math.min(...pts.map(p=>p[0])),x1:Math.max(...pts.map(p=>p[0])),y0:Math.min(...pts.map(p=>p[1])),y1:Math.max(...pts.map(p=>p[1]))});
+      const b1=bounds(raw),b2=bounds(rot),scale=Math.min(220/(b1.x1-b1.x0),180/(b1.y1-b1.y0),220/(b2.x1-b2.x0),180/(b2.y1-b2.y0));
+      const place=(pts,b,cx)=>pts.map(p=>[cx+(p[0]-(b.x0+b.x1)/2)*scale,145+(p[1]-(b.y0+b.y1)/2)*scale]);
+      const left=place(raw,b1,210),right=place(rot,b2,550);
+      const draw=(pts,names)=>{const [A,B,D]=pts;let out=poly(pts)+rightMark(A,B,D)+text(A,names[0],-18,18)+text(B,names[1],18,18)+text(D,names[2],0,-18)+tick(B,D,1);if(problem.rightCase===0)out+=tick(A,B,2)+text(midpoint(B,D),`${5*problem.k} cm`,22,-12)+text(midpoint(A,B),`${4*problem.k} cm`,0,24);else out+=angleMark(B,A,D,`${angle}°`,purple,25)+text(midpoint(B,D),`${5*problem.k} cm`,25,-12);return out;};
+      return C.svg(draw(left,'ABC')+draw(right,'DEF'),{label:`直角がAとDの2つの直角三角形。斜辺BCとEFが等しく、${problem.rightCase===0?'ABとDEも等しい':'角Bと角Eも等しい'}。`,viewBox:'0 0 760 300'});
+    }
+    function flow(steps){return `<section class="card"><h3>証明の流れと解説</h3>${proofStep===0?'<p>仮定から出発し、1段階ずつ根拠をつなぎます。</p>':''}<ol class="g2p-proof-flow">${steps.slice(0,proofStep).map(([title,body])=>`<li style="margin:12px 0;line-height:1.9"><strong>${esc(title)}</strong><p style="margin:4px 0">${esc(body)}</p></li>`).join('')}</ol><div class="g2sd-actions">${button('前の段階',`data-g2p-prev ${proofStep===0?'disabled':''}`)}<span class="badge">${proofStep} / ${steps.length}</span>${button('次の段階を表示',`data-g2p-next ${proofStep===steps.length?'disabled':''}`,true)}${button('すべて表示','data-g2p-all')}</div></section>`;}
+    function render(ui){
+      let html='',answer=null,explanation='',unit='';
+      ui.q('[data-g2p-extra]').innerHTML='';
+      if(mode==='isosceles'){
+        html=facts('二等辺三角形','2つの辺の長さが等しい三角形です。図では AB＝AC、BCが底辺です。',['2つの底角が等しい（∠B＝∠C）。','頂角の二等分線は、底辺を垂直に二等分する。','逆に、2つの角が等しい三角形は、対応する2つの辺も等しい。']);
+        html+=isoDiagram(problem);unit=problem.type===2?'cm':'度';answer=problem.type===0?(180-problem.angle)/2:problem.type===1?problem.angle:problem.n;
+        explanation=problem.type===0?`底角は等しいので、（180°−${problem.angle}°）÷2＝${answer}°。`:problem.type===1?`2つの底角はどちらも${(180-problem.angle)/2}°。頂角は180°−${(180-problem.angle)/2}°×2＝${answer}°。`:'AB＝ACが仮定です。等しい辺どうしを対応させます。';
+        html+=answerPanel(problem.type===2?'辺ACの長さ x を求めましょう。':problem.type===0?'底角Bの大きさ x を求めましょう。':'頂角Aの大きさ x を求めましょう。',answer,explanation,unit);
+      }else if(mode==='parallelogram'){
+        html=facts('平行四辺形','2組の対辺がそれぞれ平行な四角形です。AB∥CD、AD∥BC。',['2組の対辺がそれぞれ等しい。','2組の対角がそれぞれ等しい。隣り合う内角の和は180°。','対角線は、それぞれの中点で交わる。','一般の平行四辺形では、対角線が等しい・垂直とは限りません。']);
+        html+=paraDiagram();unit=problem.type===1?'度':'cm';answer=problem.type===0?problem.n:problem.type===1?180-problem.angle:problem.half;
+        explanation=problem.type===0?'向かい合う辺ABとCDは等しいので、CD＝ABです。':problem.type===1?`隣り合う内角の和は180°。∠B＝180°−${problem.angle}°＝${answer}°。`:'平行四辺形の対角線は、それぞれの中点で交わります。OはACの中点なので、OC＝AOです。';
+        html+=answerPanel(problem.type===0?'辺CDの長さ x を求めましょう。':problem.type===1?'内角Bの大きさ x を求めましょう。':'対角線の一部OCの長さ x を求めましょう。',answer,explanation,unit);
+      }else if(mode==='right'){
+        html=facts('直角三角形の合同','直角三角形では、直角の向かい側の辺を「斜辺」といいます。',['直角三角形どうしで、斜辺と他の1辺がそれぞれ等しければ合同。','直角三角形どうしで、斜辺と1つの鋭角がそれぞれ等しければ合同。','直角と1辺だけでは、一般には合同といえません。']);
+        html+=rightDiagram()+`<div class="g2sd-givens"><strong>仮定</strong><p>∠A＝∠D＝90°、BC＝EF、${problem.rightCase===0?'AB＝DE':'∠B＝∠E'}。</p><strong>示すこと</strong><p>△ABC≡△DEF（A↔D、B↔E、C↔F）。</p></div><section class="card"><h3>この仮定から使う合同条件は？</h3><div class="g2sd-reasons">${congruenceChoices.map((v,i)=>button(v,`data-g2p-condition="${i}" aria-pressed="${choice===i}"`,choice===i)).join('')}</div><p class="g2sd-feedback" role="status">${feedback}</p></section>`;
+        const steps=[['直角三角形であることを確認','仮定より∠A＝∠D＝90°なので、△ABCと△DEFは直角三角形です。斜辺はBCとEFです。'],['対応する条件をそろえる',problem.rightCase===0?'BC＝EF（斜辺）、AB＝DE（他の1辺）が仮定で与えられています。':'BC＝EF（斜辺）、∠B＝∠E（1つの鋭角）が仮定です。角Cと角Fも、90°からそれぞれ等しい角B・角Eを引いて得られるため等しくなります。'],['合同条件を使って結論',`直角三角形の「${congruenceChoices[problem.rightCase]}」によって、△ABC≡△DEF。対応の順序をそろえて結論を書きます。`]];
+        html+=flow(steps);
+      }else{
+        const selected=conditions[problem.case];
+        html=facts('平行四辺形になるための条件','四角形について、次の5つのうち、いずれか1つの条件を満たせば平行四辺形といえます。',conditions.map(c=>c.name),'判定の考え方','5つの十分な条件');
+        html+='<p class="hint">「1組の対辺が平行で長さも等しい」は、同じ1組についての条件です。平行な組と等しい組が別々では不十分です。</p>';
+        ui.q('[data-g2p-extra]').innerHTML=`<label class="field">証明で使う仮定<select class="input" data-g2p-proof-kind>${conditions.map((c,i)=>`<option value="${i}" ${i===problem.case?'selected':''}>${c.name}</option>`).join('')}</select></label><p class="hint">「新しい問題・図にする」で条件と図形が変わります。条件だけを選んで調べることもできます。</p>`;
+        ui.q('[data-g2p-proof-kind]').onchange=e=>{problem.case=Number(e.target.value);proofStep=0;render(ui);};
+        html+=`<div class="g2sd-givens"><strong>仮定</strong><p>${esc(selected.given)}</p><strong>示すこと</strong><p>四角形ABCDが平行四辺形であること。</p></div>`+paraDiagram('proof',selected.key)+flow(selected.steps);
+      }
+      ui.work.innerHTML=html;
+      if(answer!==null){
+        const check=()=>{const value=ui.work.querySelector('[data-g2p-answer]').value;answerDraft=value;if(!value.trim()){ui.work.querySelector('[data-g2p-feedback]').textContent='答えを入力してください。';return;}const n=Number(value);if(!Number.isFinite(n)){ui.work.querySelector('[data-g2p-feedback]').textContent='数で入力してください。';return;}feedback=Math.abs(n-answer)<1e-9?'正解です。使った定理も確かめましょう。':'もう一度、等しい辺・角や、全体の和を確かめましょう。';revealed=Math.abs(n-answer)<1e-9;render(ui);};
+        ui.work.querySelector('[data-g2p-answer]').oninput=e=>{answerDraft=e.target.value;};ui.work.querySelector('[data-g2p-check]').onclick=check;ui.work.querySelector('[data-g2p-answer]').onkeydown=e=>{if(e.key==='Enter')check();};ui.work.querySelector('[data-g2p-reveal]').onclick=()=>{revealed=true;feedback='';render(ui);};
+      }
+      ui.work.querySelectorAll('[data-g2p-condition]').forEach(btn=>btn.onclick=()=>{choice=Number(btn.dataset.g2pCondition);feedback=choice===problem.rightCase?'正解です。仮定の対応から選んだ条件です。下の証明の流れで理由を確認しましょう。':'この問題で与えられた辺・角を見直しましょう。直角だけを1つの鋭角として扱うことはできません。';render(ui);});
+      const steps=mode==='right'?3:mode==='conditions'?conditions[problem.case].steps.length:0;
+      ui.work.querySelector('[data-g2p-prev]')?.addEventListener('click',()=>{proofStep=Math.max(0,proofStep-1);render(ui);});ui.work.querySelector('[data-g2p-next]')?.addEventListener('click',()=>{proofStep=Math.min(steps,proofStep+1);render(ui);});ui.work.querySelector('[data-g2p-all]')?.addEventListener('click',()=>{proofStep=steps;render(ui);});
+    }
+    generate();initialize();
+  };
+})();
+
+</script>
+<script>
 'use strict';
 (() => {
   MathfieldElement.fontsDirectory=null;
   MathfieldElement.soundsDirectory=null;
-  const selector='#g1ExpressionInput, #g1EquationInput, #algebraInput, #quadraticEquation, #quadraticFactorInput, [id^="quadraticCoeff"], .graph-entry input';
+  const selector='#g2ExpressionInput, #g2SystemFirst, #g2SystemSecond, #g1ExpressionInput, #g1EquationInput, #algebraInput, #quadraticEquation, #quadraticFactorInput, [id^="quadraticCoeff"], .graph-entry input';
   const mounted=new WeakMap();
   const nativeValue=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value');
   const E=M.escape;
@@ -7491,7 +7964,7 @@ window.QuizBank.review=[
         else{result+=')';depth--;operand=false;}
       }else{result+=c;if(!/\s/.test(c))operand=/[+\-*/^(=,]/.test(c);}
     }
-    return result;
+    return result.replace(/-:/g,'÷');
   }
   function mount(input){
     if(mounted.has(input)||!input.id)return;
@@ -7879,7 +8352,7 @@ window.QuizBank.review=[
     {id:3,grade:3,title:'関数',sub:'表・グラフ・交点',description:'式、表、グラフをつなげて、関数の特徴を見つけよう。',init:'initGraph',bank:3},
     {id:4,grade:3,title:'相似',sub:'三角形を比べる',description:'見た目だけで決めず、辺や角を手がかりに考えよう。',init:'initSimilarity',bank:4},
     {id:5,grade:3,title:'三平方の定理',sub:'直角三角形のひみつ',description:'2つの辺から、残りの1辺を求めよう。',init:'initPythagoras',bank:5},
-    {id:6,review:true,title:'まとめテスト',sub:'中1〜中3の総復習',description:'数と式・方程式・関数・図形・データを、まとめて確かめよう。',init:'initReview'},
+    {id:6,grade:3,review:true,title:'まとめテスト',sub:'中1〜中3の総復習',description:'数と式・方程式・関数・図形・データを、まとめて確かめよう。',init:'initReview'},
     {id:7,grade:1,title:'正負の数',sub:'数直線で意味をつかむ',description:'数の向きと移動をつなげて、正負の数を考えよう。',init:'initG1Numbers',bank:'g1-numbers'},
     {id:8,grade:1,title:'文字と式',sub:'自由入力・式の整理',description:'式を自由に入力して計算し、同類項やかっこの意味を確かめよう。',init:'initG1Expressions',bank:'g1-expressions'},
     {id:9,grade:1,title:'方程式',sub:'自由入力・解き方を学ぶ',description:'方程式を自由に入力し、両辺の等しさを保ちながら解を求めよう。',init:'initG1Equation',bank:'g1-equations'},
@@ -7887,21 +8360,23 @@ window.QuizBank.review=[
     {id:11,grade:1,title:'平面図形',sub:'移動・作図・おうぎ形',description:'円の接線を作図し、おうぎ形の面積や弧の長さを考えよう。',init:'initG1Plane',bank:'g1-plane'},
     {id:12,grade:1,title:'空間図形',sub:'いろいろな立体と計算',description:'柱・錐・球の形を比べ、表面積や体積の式の意味を考えよう。',init:'initG1Solid',bank:'g1-solid'},
     {id:13,grade:1,title:'データの活用',sub:'分布と代表値を読む',description:'データを図に表して、全体の傾向を見つけよう。',init:'initG1Data',bank:'g1-data'},
-    {id:14,grade:2,title:'式の計算',sub:'整理して理由を説明',description:'同類項をまとめ、文字式で成り立つ理由を説明しよう。',init:'initG2Expressions',bank:'g2-expressions'},
-    {id:15,grade:2,title:'連立方程式',sub:'2つの条件を結ぶ',description:'2つの式を組み合わせ、未知数を1つずつ求めよう。',init:'initG2Simultaneous',bank:'g2-simultaneous'},
-    {id:16,grade:2,title:'一次関数',sub:'傾きと切片の意味',description:'増加量と最初の値を、表・式・グラフで確かめよう。',init:'initG2Linear',bank:'g2-linear'},
-    {id:17,grade:2,title:'平行線と合同',sub:'角の関係から考える',description:'等しい角や合同条件を根拠に、図形の性質を調べよう。',init:'initG2Angles',bank:'g2-angles'},
-    {id:18,grade:2,title:'三角形と四角形',sub:'証明を組み立てる',description:'仮定から結論まで、根拠をつないで説明しよう。',init:'initG2Proof',bank:'g2-proof'},
+    {id:14,grade:2,title:'式の計算',sub:'自由入力・式の整理',description:'式を自由に入力し、同類項の整理や乗除の計算を確かめよう。',init:'initG2Expressions',bank:'g2-expressions'},
+    {id:15,grade:2,title:'連立方程式',sub:'自由入力・2つの条件',description:'2つの式を自由に入力し、加減法の流れと解を確かめよう。',init:'initG2Simultaneous',bank:'g2-simultaneous'},
+    {id:16,grade:2,title:'一次関数',sub:'分かる情報から式と図へ',description:'傾き・切片・最大2点の座標から、式とグラフを求めよう。',init:'initG2Linear',bank:'g2-linear'},
+    {id:17,grade:2,title:'平行線と合同',sub:'内角・外角・合同の証明',description:'三角形・多角形の角と、合同条件を使う証明を学ぼう。',init:'initG2Angles',bank:'g2-angles'},
+    {id:18,grade:2,title:'三角形と四角形',sub:'定義・性質・条件を使う',description:'辺や角の計算から、直角三角形の合同と平行四辺形の証明へ進もう。',init:'initG2Proof',bank:'g2-proof'},
     {id:19,grade:2,title:'確率',sub:'すべての場合を数える',description:'起こりうる場合を整理し、理論と実験を比べよう。',init:'initG2Probability',bank:'g2-probability'},
-    {id:20,grade:2,title:'データの比較',sub:'箱ひげ図と散らばり',description:'中心と散らばりに注目して、2つの集団を比べよう。',init:'initG2Data',bank:'g2-data'}
+    {id:20,grade:2,title:'データの比較',sub:'箱ひげ図と散らばり',description:'中心と散らばりに注目して、2つの集団を比べよう。',init:'initG2Data',bank:'g2-data'},
+    {id:21,grade:1,review:true,title:'まとめテスト',sub:'中1の総復習',description:'中1で学んだ数と式・方程式・関数・図形・データを、まとめて確かめよう。',init:'initReview'},
+    {id:22,grade:2,review:true,title:'まとめテスト',sub:'中1・中2の総復習',description:'中1と中2で学んだ内容を、まとめて確かめよう。',init:'initReview'}
   ];
   const initialized=new Set(),lastByGrade=new Map();let active=-1,grade=3;
   const panes=document.getElementById('chapterPanes'),nav=document.getElementById('chapterNav');
-  const visibleChapters=()=>[...chapters.filter(c=>c.grade===grade),chapters.find(c=>c.review)];
-  const ordered=[...chapters.filter(c=>!c.review),chapters.find(c=>c.review)];
+  const visibleChapters=()=>[...chapters.filter(c=>c.grade===grade&&!c.review),chapters.find(c=>c.grade===grade&&c.review)];
+  const ordered=[...chapters.filter(c=>!c.review),...chapters.filter(c=>c.review)];
   ordered.forEach(c=>{
     const i=c.id,number=c.review?'総':String(chapters.filter(item=>item.grade===c.grade).findIndex(item=>item.id===i)+1).padStart(2,'0');
-    const tab=document.createElement('button');tab.type='button';tab.className='chapter-tab'+(c.review?' is-review':'');tab.id=`chapter-tab-${i}`;tab.dataset.chapter=String(i);tab.hidden=!c.review&&c.grade!==grade;
+    const tab=document.createElement('button');tab.type='button';tab.className='chapter-tab'+(c.review?' is-review':'');tab.id=`chapter-tab-${i}`;tab.dataset.chapter=String(i);tab.hidden=c.grade!==grade;
     tab.setAttribute('role','tab');tab.setAttribute('aria-controls',`chapter-${i}`);tab.setAttribute('aria-selected','false');tab.tabIndex=-1;
     tab.innerHTML=`<span class="chapter-number">${number}</span><span><span class="chapter-title">${c.title}</span><span class="chapter-subtitle">${c.sub}</span></span>`;
     tab.addEventListener('click',()=>activate(i));
@@ -7913,20 +8388,20 @@ window.QuizBank.review=[
     active=i;if(!c.review)lastByGrade.set(c.grade,i);
     chapters.forEach(item=>{const tab=document.getElementById(`chapter-tab-${item.id}`);tab.setAttribute('aria-selected',String(i===item.id));tab.tabIndex=i===item.id?0:-1;document.getElementById(`chapter-${item.id}`).hidden=i!==item.id;});
     document.getElementById('chapterHeading').textContent=c.title;document.getElementById('chapterDescription').textContent=c.description;
-    document.getElementById('chapterCode').textContent=c.review?'FINAL REVIEW':`中${c.grade} · CHAPTER ${String(chapters.filter(item=>item.grade===c.grade).findIndex(item=>item.id===i)+1).padStart(2,'0')}`;
-    if(!initialized.has(i)){const pane=document.getElementById(`chapter-${i}`);window[c.init](pane);if(!c.review)Learning.attach(pane,c.bank);initialized.add(i);}
+    document.getElementById('chapterCode').textContent=c.review?`中${c.grade}まで · REVIEW`:`中${c.grade} · CHAPTER ${String(chapters.filter(item=>item.grade===c.grade).findIndex(item=>item.id===i)+1).padStart(2,'0')}`;
+    if(!initialized.has(i)){const pane=document.getElementById(`chapter-${i}`);window[c.init](pane,c.grade);if(!c.review)Learning.attach(pane,c.bank);initialized.add(i);}
     window.dispatchEvent(new CustomEvent('math:chapter',{detail:i}));
   }
   function setGrade(value){
     grade=Number(value);document.querySelectorAll('[data-grade]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.grade)===grade)));
-    chapters.forEach(c=>document.getElementById(`chapter-tab-${c.id}`).hidden=!c.review&&c.grade!==grade);
+    chapters.forEach(c=>document.getElementById(`chapter-tab-${c.id}`).hidden=c.grade!==grade);
     activate(lastByGrade.get(grade)??chapters.find(c=>c.grade===grade).id);
   }
   document.querySelectorAll('[data-grade]').forEach(button=>button.addEventListener('click',()=>setGrade(button.dataset.grade)));
   function fit(){document.documentElement.style.setProperty('--scale',Math.min(innerWidth/1600,innerHeight/900));}window.addEventListener('resize',fit);fit();
   document.getElementById('notationHelp').addEventListener('click',()=>document.getElementById('notationDialog').showModal());document.getElementById('closeNotation').addEventListener('click',()=>document.getElementById('notationDialog').close());
   document.getElementById('studioFullscreen').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch(e){document.getElementById('studioFullscreen').textContent='ブラウザの全画面機能を使用';}});document.addEventListener('fullscreenchange',()=>{document.getElementById('studioFullscreen').textContent=document.fullscreenElement?'⛶ 全画面を終了':'⛶ 全画面';fit();});
-  lastByGrade.set(1,8);setGrade(1);
+  lastByGrade.set(2,14);setGrade(2);
 })();
 </script>
 </body>
